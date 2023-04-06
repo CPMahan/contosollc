@@ -1,3 +1,5 @@
+#Contoso variables
+
 hub_resource_group_name = "hub-eus-rg"
 dev_resource_group_name = "dev-eus-rg"
 location = "East US"
