@@ -40,7 +40,7 @@ variable "bastion_subnet_name" {
 
 variable "bastion_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "app_gateway_subnet_name" {
@@ -50,7 +50,7 @@ variable "app_gateway_subnet_name" {
 
 variable "app_gateway_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "management_tools_subnet_name" {
@@ -60,7 +60,7 @@ variable "management_tools_subnet_name" {
 
 variable "management_tools_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "hub_endpoint_subnet_name" {
@@ -70,7 +70,7 @@ variable "hub_endpoint_subnet_name" {
 
 variable "hub_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "dev_kv_subnet_name" {
@@ -80,7 +80,7 @@ variable "dev_kv_subnet_name" {
 
 variable "dev_kv_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "dev_data_subnet_name" {
@@ -90,7 +90,7 @@ variable "dev_data_subnet_name" {
 
 variable "dev_data_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "dev_asp_subnet_name" {
@@ -100,7 +100,7 @@ variable "dev_asp_subnet_name" {
 
 variable "dev_asp_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "dev_asp_endpoint_subnet_name" {
@@ -110,7 +110,7 @@ variable "dev_asp_endpoint_subnet_name" {
 
 variable "dev_asp_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
 
 variable "dev_to_hub_peering_name" {

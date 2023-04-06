@@ -15,5 +15,5 @@ variable "resource_group_name" {
 
 variable "subnet_address_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = string
+  type = list(string)
 }
