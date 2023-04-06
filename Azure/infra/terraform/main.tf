@@ -31,7 +31,7 @@ module "dev_to_hub_peering" {
   peer_name = var.dev_to_hub_peering_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_peer_from_name = var.dev_virtual_network_name
-  virtual_network_peer_to_id = module.hub_virtual_network.virtual_network.id
+  virtual_network_peer_to_id = module.hub_virtual_network.id
 }
 
 module "hub_to_dev_peering" {
@@ -39,7 +39,7 @@ module "hub_to_dev_peering" {
   peer_name = var.hub_to_dev_peering_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_peer_from_name = var.hub_virtual_network_name
-  virtual_network_peer_to_id = module.dev_virtual_network.virtual_network.id
+  virtual_network_peer_to_id = module.dev_virtual_network.id
 }
 
 module "bastion_subnet" {
@@ -180,7 +180,7 @@ module "mgt_tools_vm" {
   location = var.location
   ip_config_name = var.mgt_tools_ip_config_name
   # subnet_id = var.mgt_tools_vm_subnet_id
-  subnet_id = module.management_tools_subnet.id
+  subnet_id = module.management_tools_subnet.subnet_id
   private_ip_address_allocation = var.mgt_tools_private_ip_address_allocation
   vm_name = var.mgt_tools_vm_name
   vm_size = var.mgt_tools_vm_size
