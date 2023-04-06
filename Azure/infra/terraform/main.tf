@@ -134,6 +134,7 @@ module "hub_key_vault" {
   source = "./modules/key_vault"
   key_vault_name = var.hub_key_vault_name
   resource_group_name = var.hub_resource_group_name
+  location = var.location
   tenant_id = var.tenant_id
   sku_name = var.key_vault_sku_name
 }
@@ -142,6 +143,7 @@ module "dev_key_vault" {
   source = "./modules/key_vault"
   key_vault_name = var.dev_key_vault_name
   resource_group_name = var.dev_resource_group_name
+  location = var.location
   tenant_id = var.tenant_id
   sku_name = var.key_vault_sku_name
 }
