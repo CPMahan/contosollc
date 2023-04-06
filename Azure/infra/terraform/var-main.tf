@@ -38,7 +38,7 @@ variable "bastion_subnet_name" {
   type = string
 }
 
-variable "bastion_subnet_address_prefixes" {
+variable "bastion_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -48,7 +48,7 @@ variable "app_gateway_subnet_name" {
   type = string
 }
 
-variable "app_gateway_subnet_address_prefixes" {
+variable "app_gateway_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -58,7 +58,7 @@ variable "management_tools_subnet_name" {
   type = string
 }
 
-variable "management_tools_subnet_address_prefixes" {
+variable "management_tools_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -68,7 +68,7 @@ variable "hub_endpoint_subnet_name" {
   type = string
 }
 
-variable "hub_endpoint_subnet_address_prefixes" {
+variable "hub_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -78,7 +78,7 @@ variable "dev_kv_subnet_name" {
   type = string
 }
 
-variable "dev_kv_subnet_address_prefixes" {
+variable "dev_kv_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -88,7 +88,7 @@ variable "dev_data_subnet_name" {
   type = string
 }
 
-variable "dev_data_subnet_address_prefixes" {
+variable "dev_data_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -98,7 +98,7 @@ variable "dev_asp_subnet_name" {
   type = string
 }
 
-variable "dev_asp_subnet_address_prefixes" {
+variable "dev_asp_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
@@ -108,7 +108,7 @@ variable "dev_asp_endpoint_subnet_name" {
   type = string
 }
 
-variable "dev_asp_endpoint_subnet_address_prefixes" {
+variable "dev_asp_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = string
 }
