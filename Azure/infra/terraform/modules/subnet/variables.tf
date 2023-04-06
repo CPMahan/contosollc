@@ -1,3 +1,8 @@
+variable "subnet_name" {
+  description = "(Required) The name of the subnet"
+  type = string
+}
+
 variable "virtual_network_name" {
   description = "(Required) The name of the virtual network"
   type = string
@@ -8,12 +13,7 @@ variable "resource_group_name" {
   type = string
 }
 
-variable "location" {
-  description = "(Required) The location/region where the virtual network is created"
-  type = string
-}
-
-variable "virtual_network_address_space" {
-  description = "(Required) The address space that is used the virtual network"
+variable "subnet_address_prefixes" {
+  description = "(Required) The address prefixes to use for the subnet"
   type = string
 }

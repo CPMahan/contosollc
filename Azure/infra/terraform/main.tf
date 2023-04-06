@@ -27,7 +27,7 @@ module "dev_virtual_network" {
 }
 
 module "dev_to_hub_peering" {
-  source = "./modules/virtual_network"
+  source = "./modules/peering"
   peer_name = var.dev_to_hub_peering_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_peer_from_name = var.dev_virtual_network_name
@@ -35,7 +35,7 @@ module "dev_to_hub_peering" {
 }
 
 module "hub_to_dev_peering" {
-  source = "./modules/virtual_network"
+  source = "./modules/peering"
   peer_name = var.hub_to_dev_peering_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_peer_from_name = var.hub_virtual_network_name
@@ -43,7 +43,7 @@ module "hub_to_dev_peering" {
 }
 
 module "bastion_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.bastion_subnet_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_name = var.hub_virtual_network_name
@@ -54,7 +54,7 @@ module "bastion_subnet" {
 }
 
 module "app_gateway_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.app_gateway_subnet_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_name = var.hub_virtual_network_name
@@ -65,7 +65,7 @@ module "app_gateway_subnet" {
 }
 
 module "management_tools_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.management_tools_subnet_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_name = var.hub_virtual_network_name
@@ -76,7 +76,7 @@ module "management_tools_subnet" {
 }
 
 module "hub_endpoint_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.hub_endpoint_subnet_name
   resource_group_name = var.hub_resource_group_name
   virtual_network_name = var.hub_virtual_network_name
@@ -87,7 +87,7 @@ module "hub_endpoint_subnet" {
 }
 
 module "dev_kv_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.dev_kv_subnet_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_name = var.dev_virtual_network_name
@@ -98,7 +98,7 @@ module "dev_kv_subnet" {
 }
 
 module "dev_data_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.dev_data_subnet_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_name = var.dev_virtual_network_name
@@ -109,7 +109,7 @@ module "dev_data_subnet" {
 }
 
 module "dev_asp_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.dev_asp_subnet_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_name = var.dev_virtual_network_name
@@ -120,7 +120,7 @@ module "dev_asp_subnet" {
 }
 
 module "dev_asp_endpoint_subnet" {
-  source = "./modules/virtual_network"
+  source = "./modules/subnet"
   subnet_name = var.dev_asp_endpoint_subnet_name
   resource_group_name = var.dev_resource_group_name
   virtual_network_name = var.dev_virtual_network_name
