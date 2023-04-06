@@ -35,5 +35,5 @@ variable "default_network_action" {
 
 variable "vnet_subnet_ids" {
   description = "(Optional) A list of resource ids for subnets"
-  type        = string
+  type        = set(string)
 }
