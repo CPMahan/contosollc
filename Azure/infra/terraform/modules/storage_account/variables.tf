@@ -26,6 +26,7 @@ variable "account_replication_type" {
 variable "default_network_action" {
   description = "(Required) Specifies the default action of allow or deny when no other rules match"
   type        = string
+  default = "deny"
 }
 
 # variable "storage_account_ip_rules" {

@@ -35,6 +35,11 @@ variable "account_replication_type" {
   default     = "LRS"
 }
 
+variable "vnet_subnet_ids" {
+  description = "(Optional) A list of resource ids for subnets"
+  type        = set(string)
+}
+
 variable "data_source_type" {
   description = "Data source type"
   type        = string

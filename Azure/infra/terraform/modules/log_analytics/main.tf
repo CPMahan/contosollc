@@ -12,6 +12,7 @@ module "storage_account" {
   location                 = var.location
   storage_account_tier     = var.account_tier
   account_replication_type = var.account_replication_type
+  vnet_subnet_ids = var.vnet_subnet_ids
 }
 
 resource "azurerm_log_analytics_linked_storage_account" "log_analytics_linked_storage_account" {
