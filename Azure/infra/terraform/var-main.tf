@@ -25,12 +25,12 @@ variable "dev_virtual_network_name" {
 
 variable "hub_virtual_network_address_space" {
   description = "(Required) The address space that is used the hub's virtual network"
-  type = string
+  type = list(string)
 }
 
 variable "dev_virtual_network_address_space" {
   description = "(Required) The address space that is used the dev's virtual network"
-  type = string
+  type = list(string)
 }
 
 variable "bastion_subnet_name" {

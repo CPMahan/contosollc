@@ -41,3 +41,7 @@ variable "data_source_type" {
   default     = "customlogs"
 }
 
+variable "storage_account_ids" {
+  description = "Id of linked storage account"
+  type = string
+}

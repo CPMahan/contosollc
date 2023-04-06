@@ -15,5 +15,5 @@ variable "location" {
 
 variable "virtual_network_address_space" {
   description = "(Required) The address space that is used the virtual network"
-  type = string
+  type = list(string)
 }
