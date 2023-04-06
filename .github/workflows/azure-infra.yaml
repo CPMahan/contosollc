@@ -1,0 +1,77 @@
+name: Azure Contoso Infrastructure
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    #   - "az/**"
+    # paths:
+    #   - "azure/infra/**"
+jobs:
+  validate:
+    # Validate Azure Connection'
+    name: Validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./Azure/infra
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Az CLI login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Logout
+        run: |
+          az logout
+  devinfra:
+    name: Dev Infra
+    needs: Validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./Azure/infra/terraform
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - uses: cschleiden/replace-tokens@v1
+        with:
+          files: '["**/*.tfvars"]'
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        #continue-on-error: true
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply tfplan.out
+
+      - name: Terraform Output
+        if: github.ref == 'refs/heads/main'
+        run: |
+          terraform output   
