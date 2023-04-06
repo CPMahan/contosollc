@@ -167,7 +167,7 @@ module "log_analytics_workspace" {
   location = var.location
   law_sku = var.law_sku
   data_source_type = var.law_data_source_type
-  storage_account_ids = [module.hub_storage_account.id]
+  storage_account_ids = module.hub_storage_account.id
   #workspace_resource_id
   #storage_account_ids
   #depends_on
