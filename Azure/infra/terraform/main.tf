@@ -104,6 +104,9 @@ module "dev_asp_endpoint_subnet" {
   resource_group_name = var.dev_resource_group_name
   virtual_network_name = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_asp_endpoint_subnet_prefixes
+  depends_on = [
+    module.dev_virtual_network
+  ]
 }
 
 module "hub_key_vault" {
