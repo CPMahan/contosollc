@@ -2,7 +2,7 @@
 
 hub_resource_group_name              = "hub-eus-rg"
 dev_resource_group_name              = "dev-eus-rg"
-location                             = "East US"
+location                             = "eastus"
 # hub_virtual_network_name             = "hub-eus-vnet"
 # dev_virtual_network_name             = "dev-eus-vnet"
 # hub_virtual_network_address_space    = ["172.18.0.0/20"]
