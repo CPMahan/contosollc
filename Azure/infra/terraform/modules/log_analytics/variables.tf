@@ -37,7 +37,7 @@ variable "account_replication_type" {
 
 variable "vnet_subnet_ids" {
   description = "(Optional) A list of resource ids for subnets"
-  type        = set(string)
+  type        = list(string)
 }
 
 variable "data_source_type" {
