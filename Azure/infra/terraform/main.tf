@@ -176,22 +176,22 @@ module "log_analytics_workspace" {
   #depends_on
 }
 
-module "mgt_tools_vm" {
-  source = "./modules/virtual_machine"
-  nic_name = var.mgt_tools_nic_name
-  resource_group_name = var.hub_resource_group_name
-  location = var.location
-  ip_config_name = var.mgt_tools_ip_config_name
-  # subnet_id = var.mgt_tools_vm_subnet_id
-  subnet_id = module.management_tools_subnet.subnet_id
-  private_ip_address_allocation = var.mgt_tools_private_ip_address_allocation
-  vm_name = var.mgt_tools_vm_name
-  vm_size = var.mgt_tools_vm_size
-  vm_admin_username = var.mgt_tools_vm_admin_username
-  vm_caching = var.mgt_tools_vm_caching
-  vm_storage_account_type = var.mgt_tools_vm_storage_account_type
-  vm_image_id = var.mgt_tools_vm_image_id
-}
+# module "mgt_tools_vm" {
+#   source = "./modules/virtual_machine"
+#   nic_name = var.mgt_tools_nic_name
+#   resource_group_name = var.hub_resource_group_name
+#   location = var.location
+#   ip_config_name = var.mgt_tools_ip_config_name
+#   # subnet_id = var.mgt_tools_vm_subnet_id
+#   subnet_id = module.management_tools_subnet.subnet_id
+#   private_ip_address_allocation = var.mgt_tools_private_ip_address_allocation
+#   vm_name = var.mgt_tools_vm_name
+#   vm_size = var.mgt_tools_vm_size
+#   vm_admin_username = var.mgt_tools_vm_admin_username
+#   vm_caching = var.mgt_tools_vm_caching
+#   vm_storage_account_type = var.mgt_tools_vm_storage_account_type
+#   vm_image_id = var.mgt_tools_vm_image_id
+# }
 
 module "recovery_services_vault" {
   source = "./modules/recovery_services_vault"

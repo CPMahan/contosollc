@@ -168,10 +168,10 @@ variable "hub_storage_default_network_action" {
 #   type        = string
 # }
 
-variable "hub_storage_vnet_subnet_ids" {
-  description = "(Optional) A list of resource ids for subnets"
-  type        = string
-}
+# variable "hub_storage_vnet_subnet_ids" {
+#   description = "(Optional) A list of resource ids for subnets"
+#   type        = string
+# }
 
 variable "sql_server_name" {
   description = "(Required) Name of sql server"
@@ -214,60 +214,60 @@ variable "law_data_source_type" {
   default     = "customlogs"
 }
 
-variable "mgt_tools_nic_name" {
-  description = "(Required) The name of the Network Interface"
-  type        = string
-}
-
-variable "mgt_tools_ip_config_name" {
-  description = "(Required) A name used for this IP Configuration"
-  type        = string
-}
-
-# variable "subnet_id" {
-#   description = "(Optional) The ID of the Subnet where this Network Interface should be located in"
+# variable "mgt_tools_nic_name" {
+#   description = "(Required) The name of the Network Interface"
 #   type        = string
 # }
 
-variable "mgt_tools_private_ip_address_allocation" {
-  description = "(Required) The allocation method used for the Private IP Address"
-  type        = string
-}
+# variable "mgt_tools_ip_config_name" {
+#   description = "(Required) A name used for this IP Configuration"
+#   type        = string
+# }
 
-variable "mgt_tools_vm_name" {
-  description = "(Required) The name of the Linux Virtual Machine"
-  type        = string
-}
+# # variable "subnet_id" {
+# #   description = "(Optional) The ID of the Subnet where this Network Interface should be located in"
+# #   type        = string
+# # }
 
-variable "mgt_tools_vm_size" {
-  description = "(Required) The SKU which should be used for this Virtual Machine"
-  type        = string
-}
+# variable "mgt_tools_private_ip_address_allocation" {
+#   description = "(Required) The allocation method used for the Private IP Address"
+#   type        = string
+# }
 
-variable "mgt_tools_vm_admin_username" {
-  description = "(Required) The username of the local administrator used for the Virtual Machine"
-  type = string
-}
+# variable "mgt_tools_vm_name" {
+#   description = "(Required) The name of the Linux Virtual Machine"
+#   type        = string
+# }
 
-# variable "network_interface_ids" {
-#   description = "(Required) A list of Network Interface IDs which should be attached to this Virtual Machine"
+# variable "mgt_tools_vm_size" {
+#   description = "(Required) The SKU which should be used for this Virtual Machine"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_admin_username" {
+#   description = "(Required) The username of the local administrator used for the Virtual Machine"
 #   type = string
 # }
 
-variable "mgt_tools_vm_caching" {
-  description = "(Required) The Type of Caching which should be used for the Internal OS Disk"
-  type = string
-}
+# # variable "network_interface_ids" {
+# #   description = "(Required) A list of Network Interface IDs which should be attached to this Virtual Machine"
+# #   type = string
+# # }
 
-variable "mgt_tools_vm_storage_account_type" {
-  description = "(Required) The Type of Storage Account which should back this the Internal OS Disk"
-  type = string
-}
+# variable "mgt_tools_vm_caching" {
+#   description = "(Required) The Type of Caching which should be used for the Internal OS Disk"
+#   type = string
+# }
 
-variable "mgt_tools_vm_image_id" {
-  description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
-  type = string
-}
+# variable "mgt_tools_vm_storage_account_type" {
+#   description = "(Required) The Type of Storage Account which should back this the Internal OS Disk"
+#   type = string
+# }
+
+# variable "mgt_tools_vm_image_id" {
+#   description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
+#   type = string
+# }
 
 variable "rsv_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
