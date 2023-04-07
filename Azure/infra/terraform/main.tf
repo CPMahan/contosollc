@@ -134,7 +134,7 @@ module "hub_storage_account" {
   default_network_action   = var.hub_storage_default_network_action
   #storage_account_ip_rules = var.hub_storage_account_ip_rules
   # vnet_subnet_ids = var.hub_storage_vnet_subnet_ids
-  vnet_subnet_ids = module.hub_endpoint_subnet.subnet_id
+  vnet_subnet_ids = [module.hub_endpoint_subnet.subnet_id]
 }
 
 # module "dev_storage_account" {
@@ -170,7 +170,7 @@ module "log_analytics_workspace" {
   law_storage_account_name = var.hub_storage_account_name
   account_tier             = var.hub_storage_account_tier
   account_replication_type = var.hub_storage_account_replication_type
-  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
+  vnet_subnet_ids          = [module.hub_endpoint_subnet.subnet_id]
   #workspace_resource_id
   #storage_account_ids
   #depends_on
