@@ -149,16 +149,16 @@ module "hub_storage_account" {
 #   vnet_subnet_ids = var.dev_storage_vnet_subnet_ids
 # }
 
-# module "sql" {
-#   source                       = "./modules/sql_database"
-#   server_name                  = var.sql_server_name
-#   resource_group_name          = var.dev_resource_group_name
-#   location                     = var.location
-#   sql_server_version           = var.sql_server_version
-#   administrator_login          = var.sql_server_admin_login
-#   administrator_login_password = var.sql_server_admin_login_password
-#   database_name                = var.sql_database_name
-# }
+module "sql" {
+  source                       = "./modules/sql_database"
+  server_name                  = var.sql_server_name
+  resource_group_name          = var.dev_resource_group_name
+  location                     = var.location
+  sql_server_version           = var.sql_server_version
+  administrator_login          = var.sql_server_admin_login
+  administrator_login_password = var.sql_server_admin_login_password
+  database_name                = var.sql_database_name
+}
 
 module "log_analytics_workspace" {
   source                   = "./modules/log_analytics"
