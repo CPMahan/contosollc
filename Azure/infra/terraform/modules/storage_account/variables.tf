@@ -34,7 +34,7 @@ variable "default_network_action" {
 #   type        = string
 # }
 
-variable "vnet_subnet_ids" {
-  description = "(Optional) A list of resource ids for subnets"
-  type        = string
-}
+# variable "vnet_subnet_ids" {
+#   description = "(Optional) A list of resource ids for subnets"
+#   type        = string
+# }
