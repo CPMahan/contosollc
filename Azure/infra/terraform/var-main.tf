@@ -143,76 +143,76 @@ variable "key_vault_sku_name" {
   type        = string
 }
 
-# variable "hub_storage_account_name" {
-#   description = "(Required) Name of the hub storage account"
+variable "hub_storage_account_name" {
+  description = "(Required) Name of the hub storage account"
+  type        = string
+}
+
+variable "hub_storage_account_tier" {
+  description = "(Required) Defines the tier to use for this storage account"
+  type        = string
+}
+
+variable "hub_storage_account_replication_type" {
+  description = "(Required) Defines the type of replication to use for this storage account"
+  type        = string
+}
+
+variable "hub_storage_default_network_action" {
+  description = "(Required) Specifies the default action of allow or deny when no other rules match"
+  type        = string
+}
+
+# variable "hub_storage_account_ip_rules" {
+#   description = "(Optional) List of public IP or IP ranges in CIDR Format"
 #   type        = string
 # }
 
-# variable "hub_storage_account_tier" {
-#   description = "(Required) Defines the tier to use for this storage account"
+# variable "hub_storage_vnet_subnet_ids" {
+#   description = "(Optional) A list of resource ids for subnets"
 #   type        = string
 # }
 
-# variable "hub_storage_account_replication_type" {
-#   description = "(Required) Defines the type of replication to use for this storage account"
+# variable "sql_server_name" {
+#   description = "(Required) Name of sql server"
 #   type        = string
 # }
 
-# variable "hub_storage_default_network_action" {
-#   description = "(Required) Specifies the default action of allow or deny when no other rules match"
+# variable "sql_server_version" {
+#   description = "(Required) The version of the new server"
 #   type        = string
 # }
 
-# # variable "hub_storage_account_ip_rules" {
-# #   description = "(Optional) List of public IP or IP ranges in CIDR Format"
-# #   type        = string
-# # }
-
-# # variable "hub_storage_vnet_subnet_ids" {
-# #   description = "(Optional) A list of resource ids for subnets"
-# #   type        = string
-# # }
-
-# # variable "sql_server_name" {
-# #   description = "(Required) Name of sql server"
-# #   type        = string
-# # }
-
-# # variable "sql_server_version" {
-# #   description = "(Required) The version of the new server"
-# #   type        = string
-# # }
-
-# # variable "sql_server_admin_login" {
-# #   description = "(Required) The administrator login name for the new server"
-# #   type        = string
-# # }
-
-# # variable "sql_server_admin_login_password" {
-# #   description = "(Required) The password associated with the administrator login user"
-# #   type        = string
-# # }
-
-# # variable "sql_database_name" {
-# #   description = "(Required) The name of the database"
-# #   type        = string
-# # }
-
-# variable "law_name" {
-#   description = "(Required) name of the log analytics workspace"
+# variable "sql_server_admin_login" {
+#   description = "(Required) The administrator login name for the new server"
 #   type        = string
 # }
 
-# variable "law_sku" {
-#   description = "(Required) The Name of the SKU used for this Log analytics."
+# variable "sql_server_admin_login_password" {
+#   description = "(Required) The password associated with the administrator login user"
 #   type        = string
 # }
 
-# variable "law_data_source_type" {
-#   description = "Data source type"
+# variable "sql_database_name" {
+#   description = "(Required) The name of the database"
 #   type        = string
-#   default     = "customlogs"
 # }
+
+variable "law_name" {
+  description = "(Required) name of the log analytics workspace"
+  type        = string
+}
+
+variable "law_sku" {
+  description = "(Required) The Name of the SKU used for this Log analytics."
+  type        = string
+}
+
+variable "law_data_source_type" {
+  description = "Data source type"
+  type        = string
+  default     = "customlogs"
+}
 
 # variable "mgt_tools_nic_name" {
 #   description = "(Required) The name of the Network Interface"
