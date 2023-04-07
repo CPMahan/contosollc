@@ -279,7 +279,7 @@ variable "rsv_sku" {
   type        = string
 }
 
-# variable "asp_name" {
-#   description = "(Required) Specifies the name of the App Service Plan component"
-#   type        = string
-# }
+variable "asp_name" {
+  description = "(Required) Specifies the name of the App Service Plan component"
+  type        = string
+}

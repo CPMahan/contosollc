@@ -201,9 +201,9 @@ module "recovery_services_vault" {
   rsv_sku             = var.rsv_sku
 }
 
-# module "app_service" {
-#   source              = "./modules/app_service"
-#   asp_name            = var.asp_name
-#   resource_group_name = var.dev_resource_group_name
-#   location            = var.location
-# }
+module "app_service" {
+  source              = "./modules/app_service"
+  asp_name            = var.asp_name
+  resource_group_name = var.dev_resource_group_name
+  location            = var.location
+}
