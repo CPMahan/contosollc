@@ -15,132 +15,132 @@ variable "location" {
 
 variable "hub_virtual_network_name" {
   description = "(Required) The name of the virtual network for the hub resources"
-  type = string
+  type        = string
 }
 
 variable "dev_virtual_network_name" {
   description = "(Required) The name of the virtual network for the dev resources"
-  type = string
+  type        = string
 }
 
 variable "hub_virtual_network_address_space" {
   description = "(Required) The address space that is used the hub's virtual network"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_virtual_network_address_space" {
   description = "(Required) The address space that is used the dev's virtual network"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "bastion_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "bastion_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "app_gateway_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "app_gateway_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "management_tools_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "management_tools_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "hub_endpoint_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "hub_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_kv_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "dev_kv_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_data_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "dev_data_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_asp_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "dev_asp_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_asp_endpoint_subnet_name" {
   description = "(Required) The name of the subnet"
-  type = string
+  type        = string
 }
 
 variable "dev_asp_endpoint_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "dev_to_hub_peering_name" {
   description = "(Required) The name of the virtual network peering from the dev to the hub"
-  type = string
+  type        = string
 }
 
 variable "hub_to_dev_peering_name" {
   description = "(Required) The name of the virtual network peering from the hub to the dev"
-  type = string
+  type        = string
 }
 
 variable "hub_key_vault_name" {
   description = "(Required) Specifies the name of the Hub Key Vault"
-  type = string
+  type        = string
 }
 
 variable "dev_key_vault_name" {
   description = "(Required) Specifies the name of the Dev Key Vault"
-  type = string
+  type        = string
 }
 
 variable "tenant_id" {
   description = "(Required) The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault"
-  type = string
+  type        = string
 }
 
 variable "key_vault_sku_name" {
   description = "(Required) The Name of the SKU used for this Key Vault"
-  type = string
+  type        = string
 }
 
 variable "hub_storage_account_name" {
@@ -175,27 +175,27 @@ variable "hub_storage_default_network_action" {
 
 variable "sql_server_name" {
   description = "(Required) Name of sql server"
-  type = string
+  type        = string
 }
 
 variable "sql_server_version" {
   description = "(Required) The version of the new server"
-  type = string
+  type        = string
 }
 
 variable "sql_server_admin_login" {
   description = "(Required) The administrator login name for the new server"
-  type = string
+  type        = string
 }
 
 variable "sql_server_admin_login_password" {
   description = "(Required) The password associated with the administrator login user"
-  type = string
+  type        = string
 }
 
 variable "sql_database_name" {
   description = "(Required) The name of the database"
-  type = string
+  type        = string
 }
 
 variable "law_name" {
@@ -271,15 +271,15 @@ variable "law_data_source_type" {
 
 variable "rsv_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "rsv_sku" {
   description = "(Required) Sets the vault's SKU"
-  type = string
+  type        = string
 }
 
 variable "asp_name" {
   description = "(Required) Specifies the name of the App Service Plan component"
-  type = string
+  type        = string
 }
