@@ -124,57 +124,57 @@ module "dev_key_vault" {
   sku_name            = var.key_vault_sku_name
 }
 
-module "hub_storage_account" {
-  source                   = "./modules/storage_account"
-  storage_account_name     = var.hub_storage_account_name
-  resource_group_name      = var.hub_resource_group_name
-  location                 = var.location
-  storage_account_tier     = var.hub_storage_account_tier
-  account_replication_type = var.hub_storage_account_replication_type
-  default_network_action   = var.hub_storage_default_network_action
-  #storage_account_ip_rules = var.hub_storage_account_ip_rules
-  # vnet_subnet_ids = var.hub_storage_vnet_subnet_ids
-  vnet_subnet_ids = module.hub_endpoint_subnet.subnet_id
-}
-
-# module "dev_storage_account" {
-#   source = "./modules/storage_account"
-#   storage_account_name = var.dev_storage_account_name
-#   resource_group_name = var.dev_resource_group_name
-#   location = var.location
-#   storage_account_tier = var.dev_storage_account_tier
-#   account_replication_type = var.dev_storage_account_replication_type
-#   default_network_action = var.dev_storage_default_network_action
-#   storage_account_ip_rules = var.dev_storage_account_ip_rules
-#   vnet_subnet_ids = var.dev_storage_vnet_subnet_ids
+# module "hub_storage_account" {
+#   source                   = "./modules/storage_account"
+#   storage_account_name     = var.hub_storage_account_name
+#   resource_group_name      = var.hub_resource_group_name
+#   location                 = var.location
+#   storage_account_tier     = var.hub_storage_account_tier
+#   account_replication_type = var.hub_storage_account_replication_type
+#   default_network_action   = var.hub_storage_default_network_action
+#   #storage_account_ip_rules = var.hub_storage_account_ip_rules
+#   # vnet_subnet_ids = var.hub_storage_vnet_subnet_ids
+#   vnet_subnet_ids = module.hub_endpoint_subnet.subnet_id
 # }
 
-# module "sql" {
-#   source                       = "./modules/sql_database"
-#   server_name                  = var.sql_server_name
-#   resource_group_name          = var.dev_resource_group_name
-#   location                     = var.location
-#   sql_server_version           = var.sql_server_version
-#   administrator_login          = var.sql_server_admin_login
-#   administrator_login_password = var.sql_server_admin_login_password
-#   database_name                = var.sql_database_name
-# }
+# # module "dev_storage_account" {
+# #   source = "./modules/storage_account"
+# #   storage_account_name = var.dev_storage_account_name
+# #   resource_group_name = var.dev_resource_group_name
+# #   location = var.location
+# #   storage_account_tier = var.dev_storage_account_tier
+# #   account_replication_type = var.dev_storage_account_replication_type
+# #   default_network_action = var.dev_storage_default_network_action
+# #   storage_account_ip_rules = var.dev_storage_account_ip_rules
+# #   vnet_subnet_ids = var.dev_storage_vnet_subnet_ids
+# # }
 
-module "log_analytics_workspace" {
-  source                   = "./modules/log_analytics"
-  law_name                 = var.law_name
-  resource_group_name      = var.hub_resource_group_name
-  location                 = var.location
-  law_sku                  = var.law_sku
-  data_source_type         = var.law_data_source_type
-  law_storage_account_name = var.hub_storage_account_name
-  account_tier             = var.hub_storage_account_tier
-  account_replication_type = var.hub_storage_account_replication_type
-  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
-  #workspace_resource_id
-  #storage_account_ids
-  #depends_on
-}
+# # module "sql" {
+# #   source                       = "./modules/sql_database"
+# #   server_name                  = var.sql_server_name
+# #   resource_group_name          = var.dev_resource_group_name
+# #   location                     = var.location
+# #   sql_server_version           = var.sql_server_version
+# #   administrator_login          = var.sql_server_admin_login
+# #   administrator_login_password = var.sql_server_admin_login_password
+# #   database_name                = var.sql_database_name
+# # }
+
+# module "log_analytics_workspace" {
+#   source                   = "./modules/log_analytics"
+#   law_name                 = var.law_name
+#   resource_group_name      = var.hub_resource_group_name
+#   location                 = var.location
+#   law_sku                  = var.law_sku
+#   data_source_type         = var.law_data_source_type
+#   law_storage_account_name = var.hub_storage_account_name
+#   account_tier             = var.hub_storage_account_tier
+#   account_replication_type = var.hub_storage_account_replication_type
+#   vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
+#   #workspace_resource_id
+#   #storage_account_ids
+#   #depends_on
+# }
 
 # module "mgt_tools_vm" {
 #   source = "./modules/virtual_machine"
