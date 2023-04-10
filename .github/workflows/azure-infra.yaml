@@ -71,7 +71,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan
+        run: terraform plan -var-file 'contoso.tfvars'
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
