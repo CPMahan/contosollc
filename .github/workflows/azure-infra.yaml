@@ -52,7 +52,7 @@ jobs:
 
       - uses: cschleiden/replace-tokens@v1
         with:
-          files: '["**/*.tfvars"]'
+          files: '["**/contoso.tfvars"]'
 
       - name: Terraform fmt
         id: fmt
