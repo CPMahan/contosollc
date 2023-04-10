@@ -39,6 +39,8 @@ jobs:
     name: Dev Infra
     needs: Validate
     runs-on: ubuntu-latest
+    with:
+       creds: ${{ secrets.AZURE_CREDENTIALS }}
     # env:
     #   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
     #   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -76,8 +78,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform plan
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
         if: github.ref == 'refs/heads/main'
         run: terraform apply tfplan.out
 
