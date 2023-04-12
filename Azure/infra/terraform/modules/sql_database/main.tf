@@ -12,4 +12,8 @@ resource "azurerm_sql_database" "sql_database" {
   resource_group_name = var.resource_group_name
   location            = var.location
   server_name         = var.server_name
+
+  depends_on = [
+    azurerm_sql_server.sql_server
+  ]
 }
