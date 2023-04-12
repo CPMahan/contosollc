@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - "main"
-
+permissions:
+  id-token: write
+  contents: read
 jobs:
   validate:
     # Validate Azure Connection'
@@ -55,7 +57,7 @@ jobs:
 
       - uses: cschleiden/replace-tokens@v1
         with:
-          files: '["**/contoso.tfvars"]'
+          files: '["**/*.tfvars"]'
 
       - name: Terraform fmt
         id: fmt
