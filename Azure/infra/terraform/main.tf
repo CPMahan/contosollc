@@ -16,6 +16,10 @@ module "hub_virtual_network" {
   location                      = var.location
   resource_group_name           = var.hub_resource_group_name
   virtual_network_address_space = var.hub_virtual_network_address_space
+
+  depends_on = [
+    module.hub_resource_group
+  ]
 }
 
 module "dev_virtual_network" {
@@ -24,6 +28,10 @@ module "dev_virtual_network" {
   location                      = var.location
   resource_group_name           = var.dev_resource_group_name
   virtual_network_address_space = var.dev_virtual_network_address_space
+
+  depends_on = [
+    module.dev_resource_group
+  ]
 }
 
 module "dev_to_hub_peering" {
@@ -153,6 +161,10 @@ module "hub_key_vault" {
   location            = var.location
   tenant_id           = var.tenant_id
   sku_name            = var.key_vault_sku_name
+
+  depends_on = [
+    module.hub_resource_group
+  ]
 }
 
 module "dev_key_vault" {
@@ -162,6 +174,10 @@ module "dev_key_vault" {
   location            = var.location
   tenant_id           = var.tenant_id
   sku_name            = var.key_vault_sku_name
+
+  depends_on = [
+    module.dev_resource_group
+  ]
 }
 
 module "hub_storage_account" {
@@ -175,6 +191,10 @@ module "hub_storage_account" {
   #storage_account_ip_rules = var.hub_storage_account_ip_rules
   # vnet_subnet_ids = var.hub_storage_vnet_subnet_ids
   #vnet_subnet_ids = module.hub_endpoint_subnet.subnet_id
+
+  depends_on = [
+    module.hub_resource_group
+  ]
 }
 
 # module "dev_storage_account" {
@@ -198,6 +218,10 @@ module "sql" {
   administrator_login          = var.sql_server_admin_login
   administrator_login_password = var.sql_server_admin_login_password
   database_name                = var.sql_database_name
+
+  depends_on = [
+    module.dev_resource_group
+  ]
 }
 
 module "log_analytics_workspace" {
@@ -213,7 +237,10 @@ module "log_analytics_workspace" {
 #  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
 #   #workspace_resource_id
 #   #storage_account_ids
-#   #depends_on
+
+  depends_on = [
+    module.hub_resource_group
+  ]
 }
 
 # module "mgt_tools_vm" {
@@ -239,6 +266,10 @@ module "recovery_services_vault" {
   resource_group_name = var.hub_resource_group_name
   location            = var.location
   rsv_sku             = var.rsv_sku
+
+  depends_on = [
+    module.hub_resource_group
+  ]
 }
 
 module "app_service" {
@@ -246,4 +277,8 @@ module "app_service" {
   asp_name            = var.asp_name
   resource_group_name = var.dev_resource_group_name
   location            = var.location
+
+  depends_on = [
+    module.dev_resource_group
+  ]
 }
