@@ -175,7 +175,7 @@ module "hub_key_vault" {
   sku_name            = var.key_vault_sku_name
 
   depends_on = [
-    module.hub_resource_group
+    module.hub_management_resource_group
   ]
 }
 
@@ -188,7 +188,7 @@ module "dev_key_vault" {
   sku_name            = var.key_vault_sku_name
 
   depends_on = [
-    module.dev_resource_group
+    module.dev_app_resource_group
   ]
 }
 
@@ -205,7 +205,7 @@ module "hub_storage_account" {
   #vnet_subnet_ids = module.hub_endpoint_subnet.subnet_id
 
   depends_on = [
-    module.hub_resource_group
+    module.hub_management_resource_group
   ]
 }
 
@@ -232,7 +232,7 @@ module "sql" {
   database_name                = var.sql_database_name
 
   depends_on = [
-    module.dev_resource_group
+    module.dev_app_resource_group
   ]
 }
 
@@ -251,7 +251,7 @@ module "log_analytics_workspace" {
 #   #storage_account_ids
 
   depends_on = [
-    module.hub_resource_group
+    module.hub_management_resource_group
   ]
 }
 
@@ -280,7 +280,7 @@ module "recovery_services_vault" {
   rsv_sku             = var.rsv_sku
 
   depends_on = [
-    module.hub_resource_group
+    module.hub_management_resource_group
   ]
 }
 
@@ -291,6 +291,6 @@ module "app_service" {
   location            = var.location
 
   depends_on = [
-    module.dev_resource_group
+    module.dev_app_resource_group
   ]
 }
