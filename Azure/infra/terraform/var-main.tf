@@ -1,9 +1,19 @@
-variable "hub_resource_group_name" {
+variable "hub_network_resource_group_name" {
   description = "(Required) Name of resource group in hub"
   type        = string
 }
 
-variable "dev_resource_group_name" {
+variable "hub_management_resource_group_name" {
+  description = "(Required) Name of resource group in hub"
+  type        = string
+}
+
+variable "dev_network_resource_group_name" {
+  description = "(Required) Name of resource group in dev"
+  type        = string
+}
+
+variable "dev_app_resource_group_name" {
   description = "(Required) Name of resource group in dev"
   type        = string
 }

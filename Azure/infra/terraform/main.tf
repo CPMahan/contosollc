@@ -1,12 +1,24 @@
-module "hub_resource_group" {
+module "hub_network_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = var.hub_resource_group_name
+  resource_group_name = var.hub_network_resource_group_name
   location            = var.location
 }
 
-module "dev_resource_group" {
+module "hub_management_resource_group" {
   source              = "./modules/resource_group"
-  resource_group_name = var.dev_resource_group_name
+  resource_group_name = var.hub_management_resource_group_name
+  location            = var.location
+}
+
+module "dev_network_resource_group" {
+  source              = "./modules/resource_group"
+  resource_group_name = var.dev_network_resource_group_name
+  location            = var.location
+}
+
+module "dev_app_resource_group" {
+  source              = "./modules/resource_group"
+  resource_group_name = var.dev_app_resource_group_name
   location            = var.location
 }
 
@@ -14,11 +26,11 @@ module "hub_virtual_network" {
   source                        = "./modules/virtual_network"
   virtual_network_name          = var.hub_virtual_network_name
   location                      = var.location
-  resource_group_name           = var.hub_resource_group_name
+  resource_group_name           = var.hub_network_resource_group_name
   virtual_network_address_space = var.hub_virtual_network_address_space
 
   depends_on = [
-    module.hub_resource_group
+    module.hub_network_resource_group
   ]
 }
 
@@ -26,18 +38,18 @@ module "dev_virtual_network" {
   source                        = "./modules/virtual_network"
   virtual_network_name          = var.dev_virtual_network_name
   location                      = var.location
-  resource_group_name           = var.dev_resource_group_name
+  resource_group_name           = var.dev_network_resource_group_name
   virtual_network_address_space = var.dev_virtual_network_address_space
 
   depends_on = [
-    module.dev_resource_group
+    module.dev_network_resource_group
   ]
 }
 
 module "dev_to_hub_peering" {
   source                         = "./modules/peering"
   peer_name                      = var.dev_to_hub_peering_name
-  resource_group_name            = var.hub_resource_group_name
+  resource_group_name            = var.hub_network_resource_group_name
   virtual_network_peer_from_name = var.hub_virtual_network_name
   virtual_network_peer_to_id     = module.dev_virtual_network.id
 
@@ -49,7 +61,7 @@ module "dev_to_hub_peering" {
 module "hub_to_dev_peering" {
   source                         = "./modules/peering"
   peer_name                      = var.hub_to_dev_peering_name
-  resource_group_name            = var.dev_resource_group_name
+  resource_group_name            = var.dev_network_resource_group_name
   virtual_network_peer_from_name = var.dev_virtual_network_name
   virtual_network_peer_to_id     = module.hub_virtual_network.id
 
@@ -61,7 +73,7 @@ module "hub_to_dev_peering" {
 module "bastion_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.bastion_subnet_name
-  resource_group_name     = var.hub_resource_group_name
+  resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.bastion_subnet_prefixes
 
@@ -73,7 +85,7 @@ module "bastion_subnet" {
 module "app_gateway_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.app_gateway_subnet_name
-  resource_group_name     = var.hub_resource_group_name
+  resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.app_gateway_subnet_prefixes
 
@@ -85,7 +97,7 @@ module "app_gateway_subnet" {
 module "management_tools_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.management_tools_subnet_name
-  resource_group_name     = var.hub_resource_group_name
+  resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.management_tools_subnet_prefixes
 
@@ -97,7 +109,7 @@ module "management_tools_subnet" {
 module "hub_endpoint_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.hub_endpoint_subnet_name
-  resource_group_name     = var.hub_resource_group_name
+  resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.hub_endpoint_subnet_prefixes
 
@@ -109,7 +121,7 @@ module "hub_endpoint_subnet" {
 module "dev_kv_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.dev_kv_subnet_name
-  resource_group_name     = var.dev_resource_group_name
+  resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_kv_subnet_prefixes
 
@@ -121,7 +133,7 @@ module "dev_kv_subnet" {
 module "dev_data_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.dev_data_subnet_name
-  resource_group_name     = var.dev_resource_group_name
+  resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_data_subnet_prefixes
 
@@ -133,7 +145,7 @@ module "dev_data_subnet" {
 module "dev_asp_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.dev_asp_subnet_name
-  resource_group_name     = var.dev_resource_group_name
+  resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_asp_subnet_prefixes
 
@@ -145,7 +157,7 @@ module "dev_asp_subnet" {
 module "dev_asp_endpoint_subnet" {
   source                  = "./modules/subnet"
   subnet_name             = var.dev_asp_endpoint_subnet_name
-  resource_group_name     = var.dev_resource_group_name
+  resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_asp_endpoint_subnet_prefixes
 
@@ -157,7 +169,7 @@ module "dev_asp_endpoint_subnet" {
 module "hub_key_vault" {
   source              = "./modules/key_vault"
   key_vault_name      = var.hub_key_vault_name
-  resource_group_name = var.hub_resource_group_name
+  resource_group_name = var.hub_management_resource_group_name
   location            = var.location
   tenant_id           = var.tenant_id
   sku_name            = var.key_vault_sku_name
@@ -170,7 +182,7 @@ module "hub_key_vault" {
 module "dev_key_vault" {
   source              = "./modules/key_vault"
   key_vault_name      = var.dev_key_vault_name
-  resource_group_name = var.dev_resource_group_name
+  resource_group_name = var.dev_app_resource_group_name
   location            = var.location
   tenant_id           = var.tenant_id
   sku_name            = var.key_vault_sku_name
@@ -183,7 +195,7 @@ module "dev_key_vault" {
 module "hub_storage_account" {
   source                   = "./modules/storage_account"
   storage_account_name     = var.hub_storage_account_name
-  resource_group_name      = var.hub_resource_group_name
+  resource_group_name      = var.hub_management_resource_group_name
   location                 = var.location
   storage_account_tier     = var.hub_storage_account_tier
   account_replication_type = var.hub_storage_account_replication_type
@@ -212,7 +224,7 @@ module "hub_storage_account" {
 module "sql" {
   source                       = "./modules/sql_database"
   server_name                  = var.sql_server_name
-  resource_group_name          = var.dev_resource_group_name
+  resource_group_name          = var.dev_app_resource_group_name
   location                     = var.location
   sql_server_version           = var.sql_server_version
   administrator_login          = var.sql_server_admin_login
@@ -227,7 +239,7 @@ module "sql" {
 module "log_analytics_workspace" {
   source                   = "./modules/log_analytics"
   law_name                 = var.law_name
-  resource_group_name      = var.hub_resource_group_name
+  resource_group_name      = var.hub_management_resource_group_name
   location                 = var.location
   law_sku                  = var.law_sku
   data_source_type         = var.law_data_source_type
@@ -263,7 +275,7 @@ module "log_analytics_workspace" {
 module "recovery_services_vault" {
   source              = "./modules/recovery_services_vault"
   rsv_name            = var.rsv_name
-  resource_group_name = var.hub_resource_group_name
+  resource_group_name = var.hub_management_resource_group_name
   location            = var.location
   rsv_sku             = var.rsv_sku
 
@@ -275,7 +287,7 @@ module "recovery_services_vault" {
 module "app_service" {
   source              = "./modules/app_service"
   asp_name            = var.asp_name
-  resource_group_name = var.dev_resource_group_name
+  resource_group_name = var.dev_app_resource_group_name
   location            = var.location
 
   depends_on = [

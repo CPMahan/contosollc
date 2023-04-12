@@ -1,7 +1,9 @@
 #Contoso variables
 
-hub_resource_group_name              = "hub-eus-rg"
-dev_resource_group_name              = "dev-eus-rg"
+hub_network_resource_group_name              = "hub-eus-net-rg"
+hub_management_resource_group_name              = "hub-eus-mgt-rg"
+dev_network_resource_group_name              = "dev-eus-net-rg"
+dev_app_resource_group_name              = "dev-eus-fuel-rg"
 location                             = "eastus"
 hub_virtual_network_name             = "hub-eus-vnet"
 dev_virtual_network_name             = "dev-eus-vnet"
