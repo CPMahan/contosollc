@@ -38,8 +38,8 @@ module "dev_to_hub_peering" {
   source                         = "./modules/peering"
   peer_name                      = var.dev_to_hub_peering_name
   resource_group_name            = var.hub_resource_group_name
-  virtual_network_peer_from_name = var.dev_virtual_network_name
-  virtual_network_peer_to_id     = module.hub_virtual_network.id
+  virtual_network_peer_from_name = var.hub_virtual_network_name
+  virtual_network_peer_to_id     = module.dev_virtual_network.id
 
   depends_on = [
     module.hub_virtual_network, module.dev_virtual_network
@@ -50,8 +50,8 @@ module "hub_to_dev_peering" {
   source                         = "./modules/peering"
   peer_name                      = var.hub_to_dev_peering_name
   resource_group_name            = var.dev_resource_group_name
-  virtual_network_peer_from_name = var.hub_virtual_network_name
-  virtual_network_peer_to_id     = module.dev_virtual_network.id
+  virtual_network_peer_from_name = var.dev_virtual_network_name
+  virtual_network_peer_to_id     = module.hub_virtual_network.id
 
   depends_on = [
     module.hub_virtual_network, module.dev_virtual_network
