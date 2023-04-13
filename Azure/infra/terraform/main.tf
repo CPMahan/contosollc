@@ -290,6 +290,7 @@ module "app_service" {
   resource_group_name = var.dev_app_resource_group_name
   location            = var.location
 
+
   depends_on = [
     module.dev_app_resource_group
   ]
@@ -362,8 +363,8 @@ module "dev_app_private_endpoint" {
   resource_group_name = var.dev_app_resource_group_name
   subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
   service_name        = var.dev_asp_privateserviceconnection_name
-  resource_id         = module.app_service.id
-  subresource         = ["hosting_environment"]
+  resource_id         = module.app_service.app_id
+  subresource         = ["staticSites"]
 
   depends_on = [
     module.dev_asp_endpoint_subnet, module.app_service
