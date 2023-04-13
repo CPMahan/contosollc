@@ -296,7 +296,7 @@ variable "asp_name" {
 
 variable "hub_kv_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "hub_kv_privateserviceconnection_name" {
@@ -305,7 +305,7 @@ variable "hub_kv_privateserviceconnection_name" {
 
 variable "hub_sa_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "hub_sa_privateserviceconnection_name" {
@@ -314,7 +314,7 @@ variable "hub_sa_privateserviceconnection_name" {
 
 variable "dev_kv_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "dev_kv_privateserviceconnection_name" {
@@ -323,7 +323,7 @@ variable "dev_kv_privateserviceconnection_name" {
 
 variable "dev_db_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "dev_db_privateserviceconnection_name" {
@@ -332,7 +332,7 @@ variable "dev_db_privateserviceconnection_name" {
 
 variable "dev_asp_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
-  type = string
+  type        = string
 }
 
 variable "dev_asp_privateserviceconnection_name" {

@@ -245,10 +245,10 @@ module "log_analytics_workspace" {
   data_source_type         = var.law_data_source_type
   law_storage_account_name = var.hub_storage_account_name
   account_tier             = var.hub_storage_account_tier
-#  account_replication_type = var.hub_storage_account_replication_type
-#  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
-#   #workspace_resource_id
-#   #storage_account_ids
+  #  account_replication_type = var.hub_storage_account_replication_type
+  #  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id
+  #   #workspace_resource_id
+  #   #storage_account_ids
 
   depends_on = [
     module.hub_management_resource_group
@@ -296,51 +296,51 @@ module "app_service" {
 }
 
 module "hub_kv_private_endpoint" {
-  source = "./modules/private_endpoint"
-  pe_name = var.hub_kv_endpoint_name
-  location = var.location
+  source              = "./modules/private_endpoint"
+  pe_name             = var.hub_kv_endpoint_name
+  location            = var.location
   resource_group_name = var.hub_management_resource_group_name
-  subnet_id = module.hub_endpoint_subnet.subnet_id
-  service_name = var.hub_kv_privateserviceconnection_name
-  resource_id = module.hub_key_vault.id
+  subnet_id           = module.hub_endpoint_subnet.subnet_id
+  service_name        = var.hub_kv_privateserviceconnection_name
+  resource_id         = module.hub_key_vault.id
 }
 
 module "hub_sa_private_endpoint" {
-  source = "./modules/private_endpoint"
-  pe_name = var.hub_sa_endpoint_name
-  location = var.location
+  source              = "./modules/private_endpoint"
+  pe_name             = var.hub_sa_endpoint_name
+  location            = var.location
   resource_group_name = var.hub_management_resource_group_name
-  subnet_id = module.hub_endpoint_subnet.subnet_id
-  service_name = var.hub_sa_privateserviceconnection_name
-  resource_id = module.hub_storage_account.id
+  subnet_id           = module.hub_endpoint_subnet.subnet_id
+  service_name        = var.hub_sa_privateserviceconnection_name
+  resource_id         = module.hub_storage_account.id
 }
 
 module "dev_kv_private_endpoint" {
-  source = "./modules/private_endpoint"
-  pe_name = var.dev_kv_endpoint_name
-  location = var.location
+  source              = "./modules/private_endpoint"
+  pe_name             = var.dev_kv_endpoint_name
+  location            = var.location
   resource_group_name = var.dev_app_resource_group_name
-  subnet_id = module.dev_kv_subnet.subnet_id
-  service_name = var.dev_kv_privateserviceconnection_name
-  resource_id = module.dev_key_vault.id
+  subnet_id           = module.dev_kv_subnet.subnet_id
+  service_name        = var.dev_kv_privateserviceconnection_name
+  resource_id         = module.dev_key_vault.id
 }
 
 module "dev_db_private_endpoint" {
-  source = "./modules/private_endpoint"
-  pe_name = var.dev_db_endpoint_name
-  location = var.location
+  source              = "./modules/private_endpoint"
+  pe_name             = var.dev_db_endpoint_name
+  location            = var.location
   resource_group_name = var.dev_app_resource_group_name
-  subnet_id = module.dev_data_subnet.subnet_id
-  service_name = var.dev_db_privateserviceconnection_name
-  resource_id = module.sql.server_id
+  subnet_id           = module.dev_data_subnet.subnet_id
+  service_name        = var.dev_db_privateserviceconnection_name
+  resource_id         = module.sql.server_id
 }
 
 module "dev_app_private_endpoint" {
-  source = "./modules/private_endpoint"
-  pe_name = var.dev_asp_endpoint_name
-  location = var.location
+  source              = "./modules/private_endpoint"
+  pe_name             = var.dev_asp_endpoint_name
+  location            = var.location
   resource_group_name = var.dev_app_resource_group_name
-  subnet_id = module.dev_asp_endpoint_subnet.subnet_id
-  service_name = var.dev_asp_privateserviceconnection_name
-  resource_id = module.app_service.id
+  subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
+  service_name        = var.dev_asp_privateserviceconnection_name
+  resource_id         = module.app_service.id
 }
