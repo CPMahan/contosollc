@@ -294,6 +294,11 @@ variable "asp_name" {
   type        = string
 }
 
+variable "web_app_name" {
+  description = "(Required) The name which should be used for this Linux Web App"
+  type        = string
+}
+
 variable "hub_kv_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"
   type        = string

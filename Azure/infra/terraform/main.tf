@@ -289,7 +289,7 @@ module "app_service" {
   asp_name            = var.asp_name
   resource_group_name = var.dev_app_resource_group_name
   location            = var.location
-
+  app_name            = var.web_app_name
 
   depends_on = [
     module.dev_app_resource_group
