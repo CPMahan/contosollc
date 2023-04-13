@@ -293,3 +293,48 @@ variable "asp_name" {
   description = "(Required) Specifies the name of the App Service Plan component"
   type        = string
 }
+
+variable "hub_kv_endpoint_name" {
+  description = "(Required) Specifies the name of the Recovery Services Vault"
+  type = string
+}
+
+variable "hub_kv_privateserviceconnection_name" {
+  description = "(Required) Specifies the Name of the Private Service Connection"
+}
+
+variable "hub_sa_endpoint_name" {
+  description = "(Required) Specifies the name of the Recovery Services Vault"
+  type = string
+}
+
+variable "hub_sa_privateserviceconnection_name" {
+  description = "(Required) Specifies the Name of the Private Service Connection"
+}
+
+variable "dev_kv_endpoint_name" {
+  description = "(Required) Specifies the name of the Recovery Services Vault"
+  type = string
+}
+
+variable "dev_kv_privateserviceconnection_name" {
+  description = "(Required) Specifies the Name of the Private Service Connection"
+}
+
+variable "dev_db_endpoint_name" {
+  description = "(Required) Specifies the name of the Recovery Services Vault"
+  type = string
+}
+
+variable "dev_db_privateserviceconnection_name" {
+  description = "(Required) Specifies the Name of the Private Service Connection"
+}
+
+variable "dev_asp_endpoint_name" {
+  description = "(Required) Specifies the name of the Recovery Services Vault"
+  type = string
+}
+
+variable "dev_asp_privateserviceconnection_name" {
+  description = "(Required) Specifies the Name of the Private Service Connection"
+}
