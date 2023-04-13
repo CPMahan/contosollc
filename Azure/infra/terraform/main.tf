@@ -303,7 +303,7 @@ module "hub_kv_private_endpoint" {
   subnet_id           = module.hub_endpoint_subnet.subnet_id
   service_name        = var.hub_kv_privateserviceconnection_name
   resource_id         = module.hub_key_vault.id
-  subresource         = "vault"
+  subresource         = ["vault"]
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_key_vault
@@ -318,7 +318,7 @@ module "hub_sa_private_endpoint" {
   subnet_id           = module.hub_endpoint_subnet.subnet_id
   service_name        = var.hub_sa_privateserviceconnection_name
   resource_id         = module.hub_storage_account.id
-  subresource         = "blob"
+  subresource         = ["blob"]
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_storage_account
@@ -333,7 +333,7 @@ module "dev_kv_private_endpoint" {
   subnet_id           = module.dev_kv_subnet.subnet_id
   service_name        = var.dev_kv_privateserviceconnection_name
   resource_id         = module.dev_key_vault.id
-  subresource         = "vault"
+  subresource         = ["vault"]
 
   depends_on = [
     module.dev_kv_subnet, module.dev_key_vault
@@ -348,7 +348,7 @@ module "dev_db_private_endpoint" {
   subnet_id           = module.dev_data_subnet.subnet_id
   service_name        = var.dev_db_privateserviceconnection_name
   resource_id         = module.sql.server_id
-  subresource         = "sqlServer"
+  subresource         = ["sqlServer"]
 
   depends_on = [
     module.dev_data_subnet, module.sql
@@ -363,7 +363,7 @@ module "dev_app_private_endpoint" {
   subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
   service_name        = var.dev_asp_privateserviceconnection_name
   resource_id         = module.app_service.id
-  subresource         = "hosting environment"
+  subresource         = ["hosting environment"]
 
   depends_on = [
     module.dev_asp_endpoint_subnet, module.app_service
