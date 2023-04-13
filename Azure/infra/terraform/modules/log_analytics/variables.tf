@@ -18,22 +18,22 @@ variable "law_sku" {
   type        = string
 }
 
-# variable "law_storage_account_name" {
-#   description = "Name of the storage account"
-#   type        = string
-# }
+variable "law_storage_account_name" {
+  description = "Name of the storage account"
+  type        = string
+}
 
-# variable "account_tier" {
-#   description = "(Required) Defines the Tier to use for this storage account"
-#   type        = string
-#   default     = "Standard"
-# }
+variable "account_tier" {
+  description = "(Required) Defines the Tier to use for this storage account"
+  type        = string
+  default     = "Standard"
+}
 
-# variable "account_replication_type" {
-#   description = "(Required) Defines the type of replication to use for this storage account"
-#   type        = string
-#   default     = "LRS"
-# }
+variable "account_replication_type" {
+  description = "(Required) Defines the type of replication to use for this storage account"
+  type        = string
+  default     = "LRS"
+}
 
 # variable "vnet_subnet_ids" {
 #   description = "(Optional) A list of resource ids for subnets"
