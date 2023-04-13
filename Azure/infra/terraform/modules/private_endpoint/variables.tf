@@ -29,5 +29,5 @@ variable "resource_id" {
 
 variable "subresource" {
   description = "(Optional) A list of subresource names which the Private Endpoint is able to connect to"
-  type = string
+  #type = string
 }
