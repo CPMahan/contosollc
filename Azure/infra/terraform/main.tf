@@ -363,7 +363,7 @@ module "dev_app_private_endpoint" {
   subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
   service_name        = var.dev_asp_privateserviceconnection_name
   resource_id         = module.app_service.id
-  subresource         = ["hosting environment"]
+  subresource         = ["hosting_environment"]
 
   depends_on = [
     module.dev_asp_endpoint_subnet, module.app_service
