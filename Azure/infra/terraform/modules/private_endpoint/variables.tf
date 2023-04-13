@@ -26,3 +26,8 @@ variable "resource_id" {
   description = "(Optional) The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to"
   type = string  
 }
+
+variable "subresource" {
+  description = "(Optional) A list of subresource names which the Private Endpoint is able to connect to"
+  type = string
+}
