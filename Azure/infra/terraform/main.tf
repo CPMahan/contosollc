@@ -243,7 +243,7 @@ module "log_analytics_workspace" {
   location                 = var.location
   law_sku                  = var.law_sku
   data_source_type         = var.law_data_source_type
-  law_storage_account_name = var.hub_storage_account_name
+  law_storage_account_name = var.law_storage_account_name
   account_tier             = var.hub_storage_account_tier
   #  account_replication_type = var.hub_storage_account_replication_type
   #  vnet_subnet_ids          = module.hub_endpoint_subnet.subnet_id

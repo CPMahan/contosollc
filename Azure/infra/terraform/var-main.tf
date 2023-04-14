@@ -224,6 +224,11 @@ variable "law_data_source_type" {
   default     = "customlogs"
 }
 
+variable "law_storage_account_name" {
+  description = "Name of the linked log analytics storage account"
+  type        = string
+}
+
 # variable "mgt_tools_nic_name" {
 #   description = "(Required) The name of the Network Interface"
 #   type        = string
