@@ -12,3 +12,7 @@ variable "resource_group_name" {
   description = "(Required) The name of the resource group in which to create the Bastion"
   type        = string
 }
+
+variable "subnet_id" {
+  description = "Id of AzureBastionSubnet"
+}
