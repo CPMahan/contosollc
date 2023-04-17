@@ -48,6 +48,11 @@ variable "bastion_subnet_name" {
   type        = string
 }
 
+variable "bastion_host_name" {
+  description = "(Required) Specifies the name of the Bastion Host"
+  type        = string
+}
+
 variable "bastion_subnet_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type        = list(string)

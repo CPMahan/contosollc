@@ -166,6 +166,17 @@ module "dev_asp_endpoint_subnet" {
   ]
 }
 
+module "bastion" {
+  source              = "./modules/bastion"
+  bastion_name        = var.bastion_host_name
+  location            = var.location
+  resource_group_name = var.hub_network_resource_group_name
+
+  dependepends_on = [
+    module.bastion_subnet
+  ]
+}
+
 module "hub_key_vault" {
   source              = "./modules/key_vault"
   key_vault_name      = var.hub_key_vault_name

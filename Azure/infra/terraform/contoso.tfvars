@@ -12,6 +12,7 @@ dev_virtual_network_address_space       = ["172.18.96.0/20"]
 dev_to_hub_peering_name                 = "hub-eus-dev-peer"
 hub_to_dev_peering_name                 = "dev-eus-hub-peer"
 bastion_subnet_name                     = "AzureBastionSubnet"
+bastion_host_name                       = "hub-eus-bstn"
 bastion_subnet_prefixes                 = ["172.18.0.32/27"]
 app_gateway_subnet_name                 = "hub-eus-agw-sn"
 app_gateway_subnet_prefixes             = ["172.18.0.64/26"]
