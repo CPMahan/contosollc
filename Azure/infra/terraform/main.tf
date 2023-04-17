@@ -171,6 +171,7 @@ module "bastion" {
   bastion_name        = var.bastion_host_name
   location            = var.location
   resource_group_name = var.hub_network_resource_group_name
+  subnet_id           = module.bastion_subnet.subnet_id
 
   depends_on = [
     module.bastion_subnet
