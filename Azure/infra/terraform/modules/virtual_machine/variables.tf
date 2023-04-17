@@ -58,7 +58,7 @@ variable "vm_storage_account_type" {
   type = string
 }
 
-variable "vm_image_id" {
-  description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
-  type = string
-}
+# variable "vm_image_id" {
+#   description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
+#   type = string
+# }
