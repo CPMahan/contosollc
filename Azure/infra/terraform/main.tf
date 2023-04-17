@@ -258,7 +258,7 @@ module "log_analytics_workspace" {
 module "mgt_tools_vm" {
   source              = "./modules/virtual_machine"
   nic_name            = var.mgt_tools_nic_name
-  resource_group_name = var.hub_resource_group_name
+  resource_group_name = var.hub_management_resource_group_name
   location            = var.location
   ip_config_name      = var.mgt_tools_ip_config_name
   # subnet_id = var.mgt_tools_vm_subnet_id
