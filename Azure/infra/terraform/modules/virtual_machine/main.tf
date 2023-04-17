@@ -16,6 +16,7 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
   location            = var.location
   size                = var.vm_size
   admin_username      = var.vm_admin_username
+  admin_password      = var.vm_admin_password
   network_interface_ids = [
     azurerm_network_interface.network_interface.id
   ]

@@ -267,6 +267,7 @@ module "mgt_tools_vm" {
   vm_name                       = var.mgt_tools_vm_name
   vm_size                       = var.mgt_tools_vm_size
   vm_admin_username             = var.mgt_tools_vm_admin_username
+  vm_admin_password             = var.mgt_tools_vm_admin_password
   vm_caching                    = var.mgt_tools_vm_caching
   vm_storage_account_type       = var.mgt_tools_vm_storage_account_type
   # vm_image_id                   = var.mgt_tools_vm_image_id

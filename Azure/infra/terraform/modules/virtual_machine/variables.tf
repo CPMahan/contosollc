@@ -43,6 +43,11 @@ variable "vm_admin_username" {
   type = string
 }
 
+variable "vm_admin_password" {
+  description = "(Optional) The Password which should be used for the local-administrator on this Virtual Machine"
+  type = string
+}
+
 # variable "network_interface_ids" {
 #   description = "(Required) A list of Network Interface IDs which should be attached to this Virtual Machine"
 #   type = string
