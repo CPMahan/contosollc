@@ -33,4 +33,5 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
     version   = "latest"
   }
 
+  disable_password_authentication = false
 }
