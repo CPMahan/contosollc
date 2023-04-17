@@ -266,7 +266,7 @@ variable "mgt_tools_vm_admin_username" {
 
 variable "mgt_tools_vm_admin_password" {
   description = "(Optional) The Password which should be used for the local-administrator on this Virtual Machine"
-  type = string
+  type        = string
 }
 
 # variable "network_interface_ids" {
