@@ -25,6 +25,11 @@ resource "azurerm_linux_virtual_machine" "virtual_machine" {
     storage_account_type = var.vm_storage_account_type
   }
 
-  source_image_id = var.vm_image_id
+  source_image_reference {
+    publisher = "canonical"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
+    version   = "latest"
+  }
 
 }
