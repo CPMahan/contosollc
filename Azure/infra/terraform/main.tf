@@ -389,7 +389,7 @@ module "hub_endpoint_subnet_nsg" {
   nsg_name            = var.hub_endpoint_nsg_name
   location            = var.location
   resource_group_name = var.hub_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.hub_endpoint_subnet_nsg.id
   subnet_id           = module.hub_endpoint_subnet.subnet_id
 
   depends_on = [
@@ -402,7 +402,7 @@ module "hub_management_subnet_nsg" {
   nsg_name            = var.hub_management_nsg_name
   location            = var.location
   resource_group_name = var.hub_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.hub_management_subnet_nsg.id
   subnet_id           = module.management_tools_subnet.subnet_id
 
   depends_on = [
@@ -415,7 +415,7 @@ module "dev_asp_endpoint_subnet_nsg" {
   nsg_name            = var.dev_endpoint_nsg_name
   location            = var.location
   resource_group_name = var.dev_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.dev_asp_endpoint_subnet_nsg.id
   subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
 
   depends_on = [
@@ -428,7 +428,7 @@ module "dev_asp_subnet_nsg" {
   nsg_name            = var.dev_asp_nsg_name
   location            = var.location
   resource_group_name = var.dev_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.dev_asp_subnet_nsg.id
   subnet_id           = module.dev_asp_subnet.subnet_id
 
   depends_on = [
@@ -441,7 +441,7 @@ module "dev_data_subnet_nsg" {
   nsg_name            = var.dev_data_nsg_name
   location            = var.location
   resource_group_name = var.dev_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.dev_data_subnet_nsg.id
   subnet_id           = module.dev_data_subnet.subnet_id
 
   depends_on = [
@@ -454,7 +454,7 @@ module "dev_kv_subnet_nsg" {
   nsg_name            = var.dev_kv_nsg_name
   location            = var.location
   resource_group_name = var.dev_network_resource_group_name
-  nsg_id              = data.azurerm_network_security_group.nsg.id
+  nsg_id              = module.dev_kv_subnet_nsg.id
   subnet_id           = module.dev_kv_subnet.subnet_id
 
   depends_on = [

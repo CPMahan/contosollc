@@ -19,4 +19,8 @@ resource "azurerm_network_security_group" "nsg" {
 resource "azurerm_subnet_network_security_group_association" "subnet_nsg" {
   network_security_group_id = var.nsg_id
   subnet_id                 = var.subnet_id
+
+  depends_on = [
+    azurerm_network_security_group.nsg
+  ]
 }
