@@ -128,6 +128,36 @@ variable "dev_asp_endpoint_subnet_prefixes" {
   type        = list(string)
 }
 
+variable "hub_management_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
+variable "hub_endpoint_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
+variable "dev_endpoint_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
+variable "dev_asp_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
+variable "dev_data_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
+variable "dev_kv_nsg_name" {
+  description = "(Required) Specifies the name of the network security group"
+  type        = string
+}
+
 variable "dev_to_hub_peering_name" {
   description = "(Required) The name of the virtual network peering from the dev to the hub"
   type        = string
