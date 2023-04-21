@@ -88,7 +88,7 @@ module "app_gateway_subnet" {
   resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.app_gateway_subnet_prefixes
-
+  service_endpoints = ["Microsoft.AzureActiveDirectory"]
   depends_on = [
     module.hub_virtual_network
   ]
@@ -100,6 +100,7 @@ module "management_tools_subnet" {
   resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.management_tools_subnet_prefixes
+  service_endpoints = ["Microsoft.AzureActiceDirectory"]
 
   depends_on = [
     module.hub_virtual_network
@@ -112,6 +113,7 @@ module "hub_endpoint_subnet" {
   resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.hub_endpoint_subnet_prefixes
+  service_endpoints = ["Microsoft.KeyVault","Microsoft.Storage"]
 
   depends_on = [
     module.hub_virtual_network
@@ -124,6 +126,7 @@ module "dev_kv_subnet" {
   resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_kv_subnet_prefixes
+  service_endpoints = ["Microsoft.KeyVault"]
 
   depends_on = [
     module.dev_virtual_network
@@ -136,6 +139,7 @@ module "dev_data_subnet" {
   resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_data_subnet_prefixes
+  service_endpoints = ["Microsoft.Sql"]
 
   depends_on = [
     module.dev_virtual_network
@@ -148,6 +152,7 @@ module "dev_asp_subnet" {
   resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_asp_subnet_prefixes
+  service_endpoints = ["Microsoft.Web"]
 
   depends_on = [
     module.dev_virtual_network
@@ -160,6 +165,7 @@ module "dev_asp_endpoint_subnet" {
   resource_group_name     = var.dev_network_resource_group_name
   virtual_network_name    = var.dev_virtual_network_name
   subnet_address_prefixes = var.dev_asp_endpoint_subnet_prefixes
+  service_endpoints = ["Microsoft.Web"]
 
   depends_on = [
     module.dev_virtual_network

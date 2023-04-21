@@ -17,3 +17,8 @@ variable "subnet_address_prefixes" {
   description = "(Required) The address prefixes to use for the subnet"
   type = list(string)
 }
+
+variable "service_endpoints" {
+  description = "The list of Service endpoints to associate with the subnet"
+  type = list(string)
+}
