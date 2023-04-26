@@ -60,4 +60,10 @@ resource "azurerm_application_gateway" "agw" {
     backend_http_settings_name = "backend-settings"
     priority = 100
   }
+
+  waf_configuration {
+    enabled = true
+    firewall_mode = "Detection"
+    rule_set_version = 3.1
+  }
 }
