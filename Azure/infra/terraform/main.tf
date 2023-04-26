@@ -480,7 +480,7 @@ module "application_gateway" {
   resource_group_name = var.hub_network_resource_group_name
   gateway_subnet_id   = module.app_gateway_subnet.subnet_id
   depends_on = [
-    modules.dev_app_private_endpoint
+    module.dev_app_private_endpoint
   ]
 }
 
