@@ -31,3 +31,8 @@ variable "subresource" {
   description = "(Optional) A list of subresource names which the Private Endpoint is able to connect to"
   #type = string
 }
+
+variable "dns_name" {
+  description = " (Required) The name of the Private DNS Zone"
+  type = string
+}

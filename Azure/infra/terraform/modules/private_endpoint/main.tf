@@ -11,3 +11,12 @@ resource "azurerm_private_endpoint" "private_endpoint" {
     subresource_names = var.subresource
   }
 }
+
+resource "azurerm_private_dns_zone" "example" {
+  name                = var.dns_name
+  resource_group_name = var.resource_group_name
+
+  depends_on = [
+    azurerm_private_endpoint.private_endpoint
+  ]
+}
