@@ -474,3 +474,14 @@ module "dev_kv_subnet_nsg" {
   ]
 }
 
+module "application_gateway" {
+  source              = "./modules/application_gateway"
+  location            = var.location
+  resource_group_name = var.hub_network_resource_group_name
+  gateway_subnet_id   = module.app_gateway_subnet.subnet_id
+  depends_on = [
+    modules.dev_app_private_endpoint
+  ]
+}
+
+

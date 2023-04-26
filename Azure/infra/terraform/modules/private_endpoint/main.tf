@@ -5,10 +5,10 @@ resource "azurerm_private_endpoint" "private_endpoint" {
   subnet_id           = var.subnet_id
 
   private_service_connection {
-    name                              = var.service_name
-    private_connection_resource_id    = var.resource_id
-    is_manual_connection              = false
-    subresource_names = var.subresource
+    name                           = var.service_name
+    private_connection_resource_id = var.resource_id
+    is_manual_connection           = false
+    subresource_names              = var.subresource
   }
 }
 
