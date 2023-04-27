@@ -34,7 +34,7 @@ resource "azurerm_application_gateway" "agw" {
 
   backend_address_pool {
     name = "backend-pool"
-    fqdns = "dev-eus-h20-app.azurewebsites.net"
+    fqdns = ["dev-eus-h20-app.azurewebsites.net"]
   }
 
   backend_http_settings {
