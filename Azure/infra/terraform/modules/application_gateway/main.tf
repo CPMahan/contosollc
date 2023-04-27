@@ -72,7 +72,7 @@ resource "azurerm_application_gateway" "agw" {
     name = "health-probe"
     host = "dev-eus-h20-app.azurewebsites.net"
     interval = 5
-    protocol = "http"
+    protocol = "Http"
     path = "/"
     timeout = 60
     unhealthy_threshold = 15
