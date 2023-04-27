@@ -34,6 +34,7 @@ resource "azurerm_application_gateway" "agw" {
 
   backend_address_pool {
     name = "backend-pool"
+    fqdns = "dev-eus-h20-app.azurewebsites.net"
   }
 
   backend_http_settings {
@@ -65,5 +66,16 @@ resource "azurerm_application_gateway" "agw" {
     enabled = true
     firewall_mode = "Detection"
     rule_set_version = 3.1
+  }
+
+  probe {
+    name = "health-probe"
+    host = "dev-eus-h20-app.azurewebsites.net"
+    interval = 5
+    protocol = "http"
+    path = "/"
+    timeout = 60
+    unhealthy_threshold = 15
+    port = 80
   }
 }
