@@ -317,15 +317,16 @@ module "app_service" {
 }
 
 module "hub_kv_private_endpoint" {
-  source              = "./modules/private_endpoint"
-  pe_name             = var.hub_kv_endpoint_name
-  location            = var.location
-  resource_group_name = var.hub_management_resource_group_name
-  subnet_id           = module.hub_endpoint_subnet.subnet_id
-  service_name        = var.hub_kv_privateserviceconnection_name
-  resource_id         = module.hub_key_vault.id
-  subresource         = ["vault"]
-  dns_name            = "privatelink.vaultcore.azure.net"
+  source               = "./modules/private_endpoint"
+  pe_name              = var.hub_kv_endpoint_name
+  location             = var.location
+  resource_group_name  = var.hub_management_resource_group_name
+  subnet_id            = module.hub_endpoint_subnet.subnet_id
+  service_name         = var.hub_kv_privateserviceconnection_name
+  resource_id          = module.hub_key_vault.id
+  subresource          = ["vault"]
+  dns_group_name       = "vaults"
+  private_dns_zone_ids = module.hub_kv_dns.id
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_key_vault
@@ -333,15 +334,16 @@ module "hub_kv_private_endpoint" {
 }
 
 module "hub_sa_private_endpoint" {
-  source              = "./modules/private_endpoint"
-  pe_name             = var.hub_sa_endpoint_name
-  location            = var.location
-  resource_group_name = var.hub_management_resource_group_name
-  subnet_id           = module.hub_endpoint_subnet.subnet_id
-  service_name        = var.hub_sa_privateserviceconnection_name
-  resource_id         = module.hub_storage_account.id
-  subresource         = ["blob"]
-  dns_name            = "privatelink.blob.core.windows.net"
+  source               = "./modules/private_endpoint"
+  pe_name              = var.hub_sa_endpoint_name
+  location             = var.location
+  resource_group_name  = var.hub_management_resource_group_name
+  subnet_id            = module.hub_endpoint_subnet.subnet_id
+  service_name         = var.hub_sa_privateserviceconnection_name
+  resource_id          = module.hub_storage_account.id
+  subresource          = ["blob"]
+  dns_group_name       = "storage"
+  private_dns_zone_ids = module.hub_sa_dns.id
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_storage_account
@@ -349,15 +351,16 @@ module "hub_sa_private_endpoint" {
 }
 
 module "dev_kv_private_endpoint" {
-  source              = "./modules/private_endpoint"
-  pe_name             = var.dev_kv_endpoint_name
-  location            = var.location
-  resource_group_name = var.dev_app_resource_group_name
-  subnet_id           = module.dev_kv_subnet.subnet_id
-  service_name        = var.dev_kv_privateserviceconnection_name
-  resource_id         = module.dev_key_vault.id
-  subresource         = ["vault"]
-  dns_name            = "privatelink.vaultcore.azure.net"
+  source               = "./modules/private_endpoint"
+  pe_name              = var.dev_kv_endpoint_name
+  location             = var.location
+  resource_group_name  = var.dev_app_resource_group_name
+  subnet_id            = module.dev_kv_subnet.subnet_id
+  service_name         = var.dev_kv_privateserviceconnection_name
+  resource_id          = module.dev_key_vault.id
+  subresource          = ["vault"]
+  dns_group_name       = "vaults"
+  private_dns_zone_ids = module.dev_kv_dns.id
 
   depends_on = [
     module.dev_kv_subnet, module.dev_key_vault
@@ -365,15 +368,16 @@ module "dev_kv_private_endpoint" {
 }
 
 module "dev_db_private_endpoint" {
-  source              = "./modules/private_endpoint"
-  pe_name             = var.dev_db_endpoint_name
-  location            = var.location
-  resource_group_name = var.dev_app_resource_group_name
-  subnet_id           = module.dev_data_subnet.subnet_id
-  service_name        = var.dev_db_privateserviceconnection_name
-  resource_id         = module.sql.server_id
-  subresource         = ["sqlServer"]
-  dns_name            = "privatelink.database.windows.net"
+  source               = "./modules/private_endpoint"
+  pe_name              = var.dev_db_endpoint_name
+  location             = var.location
+  resource_group_name  = var.dev_app_resource_group_name
+  subnet_id            = module.dev_data_subnet.subnet_id
+  service_name         = var.dev_db_privateserviceconnection_name
+  resource_id          = module.sql.server_id
+  subresource          = ["sqlServer"]
+  dns_group_name       = "sql"
+  private_dns_zone_ids = module.data_dns.id
 
   depends_on = [
     module.dev_data_subnet, module.sql
@@ -381,15 +385,16 @@ module "dev_db_private_endpoint" {
 }
 
 module "dev_app_private_endpoint" {
-  source              = "./modules/private_endpoint"
-  pe_name             = var.dev_asp_endpoint_name
-  location            = var.location
-  resource_group_name = var.dev_app_resource_group_name
-  subnet_id           = module.dev_asp_endpoint_subnet.subnet_id
-  service_name        = var.dev_asp_privateserviceconnection_name
-  resource_id         = module.app_service.app_id
-  subresource         = ["sites"]
-  dns_name            = "privatelink.azurewebsites.net"
+  source               = "./modules/private_endpoint"
+  pe_name              = var.dev_asp_endpoint_name
+  location             = var.location
+  resource_group_name  = var.dev_app_resource_group_name
+  subnet_id            = module.dev_asp_endpoint_subnet.subnet_id
+  service_name         = var.dev_asp_privateserviceconnection_name
+  resource_id          = module.app_service.app_id
+  subresource          = ["sites"]
+  dns_group_name       = "websites"
+  private_dns_zone_ids = module.app_dns.id
 
   depends_on = [
     module.dev_asp_endpoint_subnet, module.app_service
@@ -484,4 +489,32 @@ module "application_gateway" {
   ]
 }
 
+module "app_dns" {
+  source              = "./modules/private_dns_zones"
+  dns_name            = "privatelink.azurewebsites.net"
+  resource_group_name = var.dev_app_resource_group_name
+}
 
+module "data_dns" {
+  source              = "./modules/private_dns_zones"
+  dns_name            = "privatelink.database.windows.net"
+  resource_group_name = var.dev_app_resource_group_name
+}
+
+module "dev_kv_dns" {
+  source              = "./modules/private_dns_zones"
+  dns_name            = "privatelink.vaultcore.azure.net"
+  resource_group_name = var.dev_app_resource_group_name
+}
+
+module "hub_kv_dns" {
+  source              = "./modules/private_dns_zones"
+  dns_name            = "privatelink.vaultcore.azure.net"
+  resource_group_name = var.hub_management_resource_group_name
+}
+
+module "hub_sa_dns" {
+  source              = "./modules/private_dns_zones"
+  dns_name            = "privatelink.blob.core.windows.net"
+  resource_group_name = var.hub_management_resource_group_name
+}

@@ -32,7 +32,11 @@ variable "subresource" {
   #type = string
 }
 
-variable "dns_name" {
-  description = " (Required) The name of the Private DNS Zone"
+variable "dns_group_name" {
+  description = "(Required) Specifies the Name of the Private DNS Zone Group."
   type = string
+}
+
+variable "private_dns_zone_ids" {
+  description = "(Required) Specifies the list of Private DNS Zones to include within the private dns zone group"
 }
