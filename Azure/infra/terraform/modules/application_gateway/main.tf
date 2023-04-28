@@ -12,8 +12,8 @@ resource "azurerm_application_gateway" "agw" {
   location            = var.location
 
   sku {
-    name     = "WAF_v2"
-    tier     = "WAF_v2"
+    name     = "Standard_Medium"
+    tier     = "Standard"
     capacity = 2
   }
 
@@ -62,11 +62,11 @@ resource "azurerm_application_gateway" "agw" {
     priority = 100
   }
 
-  waf_configuration {
-    enabled = true
-    firewall_mode = "Detection"
-    rule_set_version = 3.1
-  }
+#   waf_configuration {
+#     enabled = true
+#     firewall_mode = "Detection"
+#     rule_set_version = 3.1
+#   }
 
   probe {
     name = "health-probe"
