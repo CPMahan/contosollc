@@ -40,7 +40,7 @@ resource "azurerm_application_gateway" "agw" {
   backend_http_settings {
     name                  = "backend-settings"
     cookie_based_affinity = "Disabled"
-    path                  = "/path1/"
+    path                  = "/"
     port                  = 80
     protocol              = "Http"
     request_timeout       = 60
