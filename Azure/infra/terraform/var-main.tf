@@ -43,20 +43,20 @@ variable "dev_virtual_network_address_space" {
   type        = list(string)
 }
 
-variable "bastion_subnet_name" {
-  description = "(Required) The name of the subnet"
-  type        = string
-}
+# variable "bastion_subnet_name" {
+#   description = "(Required) The name of the subnet"
+#   type        = string
+# }
 
-variable "bastion_host_name" {
-  description = "(Required) Specifies the name of the Bastion Host"
-  type        = string
-}
+# variable "bastion_host_name" {
+#   description = "(Required) Specifies the name of the Bastion Host"
+#   type        = string
+# }
 
-variable "bastion_subnet_prefixes" {
-  description = "(Required) The address prefixes to use for the subnet"
-  type        = list(string)
-}
+# variable "bastion_subnet_prefixes" {
+#   description = "(Required) The address prefixes to use for the subnet"
+#   type        = list(string)
+# }
 
 variable "app_gateway_subnet_name" {
   description = "(Required) The name of the subnet"
@@ -218,30 +218,30 @@ variable "hub_storage_default_network_action" {
 #   type        = string
 # }
 
-variable "sql_server_name" {
-  description = "(Required) Name of sql server"
-  type        = string
-}
+# variable "sql_server_name" {
+#   description = "(Required) Name of sql server"
+#   type        = string
+# }
 
-variable "sql_server_version" {
-  description = "(Required) The version of the new server"
-  type        = string
-}
+# variable "sql_server_version" {
+#   description = "(Required) The version of the new server"
+#   type        = string
+# }
 
-variable "sql_server_admin_login" {
-  description = "(Required) The administrator login name for the new server"
-  type        = string
-}
+# variable "sql_server_admin_login" {
+#   description = "(Required) The administrator login name for the new server"
+#   type        = string
+# }
 
-variable "sql_server_admin_login_password" {
-  description = "(Required) The password associated with the administrator login user"
-  type        = string
-}
+# variable "sql_server_admin_login_password" {
+#   description = "(Required) The password associated with the administrator login user"
+#   type        = string
+# }
 
-variable "sql_database_name" {
-  description = "(Required) The name of the database"
-  type        = string
-}
+# variable "sql_database_name" {
+#   description = "(Required) The name of the database"
+#   type        = string
+# }
 
 variable "law_name" {
   description = "(Required) name of the log analytics workspace"
@@ -264,75 +264,75 @@ variable "law_storage_account_name" {
   type        = string
 }
 
-variable "mgt_tools_nic_name" {
-  description = "(Required) The name of the Network Interface"
-  type        = string
-}
-
-variable "mgt_tools_ip_config_name" {
-  description = "(Required) A name used for this IP Configuration"
-  type        = string
-}
-
-# variable "subnet_id" {
-#   description = "(Optional) The ID of the Subnet where this Network Interface should be located in"
+# variable "mgt_tools_nic_name" {
+#   description = "(Required) The name of the Network Interface"
 #   type        = string
 # }
 
-variable "mgt_tools_private_ip_address_allocation" {
-  description = "(Required) The allocation method used for the Private IP Address"
-  type        = string
-}
-
-variable "mgt_tools_vm_name" {
-  description = "(Required) The name of the Linux Virtual Machine"
-  type        = string
-}
-
-variable "mgt_tools_vm_size" {
-  description = "(Required) The SKU which should be used for this Virtual Machine"
-  type        = string
-}
-
-variable "mgt_tools_vm_admin_username" {
-  description = "(Required) The username of the local administrator used for the Virtual Machine"
-  type        = string
-}
-
-variable "mgt_tools_vm_admin_password" {
-  description = "(Optional) The Password which should be used for the local-administrator on this Virtual Machine"
-  type        = string
-}
-
-# variable "network_interface_ids" {
-#   description = "(Required) A list of Network Interface IDs which should be attached to this Virtual Machine"
-#   type = string
-# }
-
-variable "mgt_tools_vm_caching" {
-  description = "(Required) The Type of Caching which should be used for the Internal OS Disk"
-  type        = string
-}
-
-variable "mgt_tools_vm_storage_account_type" {
-  description = "(Required) The Type of Storage Account which should back this the Internal OS Disk"
-  type        = string
-}
-
-# variable "mgt_tools_vm_image_id" {
-#   description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
+# variable "mgt_tools_ip_config_name" {
+#   description = "(Required) A name used for this IP Configuration"
 #   type        = string
 # }
 
-variable "rsv_name" {
-  description = "(Required) Specifies the name of the Recovery Services Vault"
-  type        = string
-}
+# # variable "subnet_id" {
+# #   description = "(Optional) The ID of the Subnet where this Network Interface should be located in"
+# #   type        = string
+# # }
 
-variable "rsv_sku" {
-  description = "(Required) Sets the vault's SKU"
-  type        = string
-}
+# variable "mgt_tools_private_ip_address_allocation" {
+#   description = "(Required) The allocation method used for the Private IP Address"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_name" {
+#   description = "(Required) The name of the Linux Virtual Machine"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_size" {
+#   description = "(Required) The SKU which should be used for this Virtual Machine"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_admin_username" {
+#   description = "(Required) The username of the local administrator used for the Virtual Machine"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_admin_password" {
+#   description = "(Optional) The Password which should be used for the local-administrator on this Virtual Machine"
+#   type        = string
+# }
+
+# # variable "network_interface_ids" {
+# #   description = "(Required) A list of Network Interface IDs which should be attached to this Virtual Machine"
+# #   type = string
+# # }
+
+# variable "mgt_tools_vm_caching" {
+#   description = "(Required) The Type of Caching which should be used for the Internal OS Disk"
+#   type        = string
+# }
+
+# variable "mgt_tools_vm_storage_account_type" {
+#   description = "(Required) The Type of Storage Account which should back this the Internal OS Disk"
+#   type        = string
+# }
+
+# # variable "mgt_tools_vm_image_id" {
+# #   description = "(Optional) The ID of the Image which this Virtual Machine should be created from"
+# #   type        = string
+# # }
+
+# variable "rsv_name" {
+#   description = "(Required) Specifies the name of the Recovery Services Vault"
+#   type        = string
+# }
+
+# variable "rsv_sku" {
+#   description = "(Required) Sets the vault's SKU"
+#   type        = string
+# }
 
 variable "asp_name" {
   description = "(Required) Specifies the name of the App Service Plan component"
@@ -371,14 +371,14 @@ variable "dev_kv_privateserviceconnection_name" {
   description = "(Required) Specifies the Name of the Private Service Connection"
 }
 
-variable "dev_db_endpoint_name" {
-  description = "(Required) Specifies the name of the Recovery Services Vault"
-  type        = string
-}
+# variable "dev_db_endpoint_name" {
+#   description = "(Required) Specifies the name of the Recovery Services Vault"
+#   type        = string
+# }
 
-variable "dev_db_privateserviceconnection_name" {
-  description = "(Required) Specifies the Name of the Private Service Connection"
-}
+# variable "dev_db_privateserviceconnection_name" {
+#   description = "(Required) Specifies the Name of the Private Service Connection"
+# }
 
 variable "dev_asp_endpoint_name" {
   description = "(Required) Specifies the name of the Recovery Services Vault"

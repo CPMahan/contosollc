@@ -70,18 +70,18 @@ module "hub_to_dev_peering" {
   ]
 }
 
-module "bastion_subnet" {
-  source                  = "./modules/subnet"
-  subnet_name             = var.bastion_subnet_name
-  resource_group_name     = var.hub_network_resource_group_name
-  virtual_network_name    = var.hub_virtual_network_name
-  subnet_address_prefixes = var.bastion_subnet_prefixes
-  service_endpoints       = ["Microsoft.AzureActiveDirectory"]
+# module "bastion_subnet" {
+#   source                  = "./modules/subnet"
+#   subnet_name             = var.bastion_subnet_name
+#   resource_group_name     = var.hub_network_resource_group_name
+#   virtual_network_name    = var.hub_virtual_network_name
+#   subnet_address_prefixes = var.bastion_subnet_prefixes
+#   service_endpoints       = ["Microsoft.AzureActiveDirectory"]
 
-  depends_on = [
-    module.hub_virtual_network
-  ]
-}
+#   depends_on = [
+#     module.hub_virtual_network
+#   ]
+# }
 
 module "app_gateway_subnet" {
   source                  = "./modules/subnet"
@@ -173,17 +173,17 @@ module "dev_asp_endpoint_subnet" {
   ]
 }
 
-module "bastion" {
-  source              = "./modules/bastion"
-  bastion_name        = var.bastion_host_name
-  location            = var.location
-  resource_group_name = var.hub_network_resource_group_name
-  subnet_id           = module.bastion_subnet.subnet_id
+# module "bastion" {
+#   source              = "./modules/bastion"
+#   bastion_name        = var.bastion_host_name
+#   location            = var.location
+#   resource_group_name = var.hub_network_resource_group_name
+#   subnet_id           = module.bastion_subnet.subnet_id
 
-  depends_on = [
-    module.bastion_subnet
-  ]
-}
+#   depends_on = [
+#     module.bastion_subnet
+#   ]
+# }
 
 module "hub_key_vault" {
   source              = "./modules/key_vault"
@@ -240,20 +240,20 @@ module "hub_storage_account" {
 #   vnet_subnet_ids = var.dev_storage_vnet_subnet_ids
 # }
 
-module "sql" {
-  source                       = "./modules/sql_database"
-  server_name                  = var.sql_server_name
-  resource_group_name          = var.dev_app_resource_group_name
-  location                     = var.location
-  sql_server_version           = var.sql_server_version
-  administrator_login          = var.sql_server_admin_login
-  administrator_login_password = var.sql_server_admin_login_password
-  database_name                = var.sql_database_name
+# module "sql" {
+#   source                       = "./modules/sql_database"
+#   server_name                  = var.sql_server_name
+#   resource_group_name          = var.dev_app_resource_group_name
+#   location                     = var.location
+#   sql_server_version           = var.sql_server_version
+#   administrator_login          = var.sql_server_admin_login
+#   administrator_login_password = var.sql_server_admin_login_password
+#   database_name                = var.sql_database_name
 
-  depends_on = [
-    module.dev_app_resource_group
-  ]
-}
+#   depends_on = [
+#     module.dev_app_resource_group
+#   ]
+# }
 
 module "log_analytics_workspace" {
   source                   = "./modules/log_analytics"
@@ -274,35 +274,35 @@ module "log_analytics_workspace" {
   ]
 }
 
-module "mgt_tools_vm" {
-  source              = "./modules/virtual_machine"
-  nic_name            = var.mgt_tools_nic_name
-  resource_group_name = var.hub_management_resource_group_name
-  location            = var.location
-  ip_config_name      = var.mgt_tools_ip_config_name
-  # subnet_id = var.mgt_tools_vm_subnet_id
-  subnet_id                     = module.management_tools_subnet.subnet_id
-  private_ip_address_allocation = var.mgt_tools_private_ip_address_allocation
-  vm_name                       = var.mgt_tools_vm_name
-  vm_size                       = var.mgt_tools_vm_size
-  vm_admin_username             = var.mgt_tools_vm_admin_username
-  vm_admin_password             = var.mgt_tools_vm_admin_password
-  vm_caching                    = var.mgt_tools_vm_caching
-  vm_storage_account_type       = var.mgt_tools_vm_storage_account_type
-  # vm_image_id                   = var.mgt_tools_vm_image_id
-}
+# module "mgt_tools_vm" {
+#   source              = "./modules/virtual_machine"
+#   nic_name            = var.mgt_tools_nic_name
+#   resource_group_name = var.hub_management_resource_group_name
+#   location            = var.location
+#   ip_config_name      = var.mgt_tools_ip_config_name
+#   # subnet_id = var.mgt_tools_vm_subnet_id
+#   subnet_id                     = module.management_tools_subnet.subnet_id
+#   private_ip_address_allocation = var.mgt_tools_private_ip_address_allocation
+#   vm_name                       = var.mgt_tools_vm_name
+#   vm_size                       = var.mgt_tools_vm_size
+#   vm_admin_username             = var.mgt_tools_vm_admin_username
+#   vm_admin_password             = var.mgt_tools_vm_admin_password
+#   vm_caching                    = var.mgt_tools_vm_caching
+#   vm_storage_account_type       = var.mgt_tools_vm_storage_account_type
+#   # vm_image_id                   = var.mgt_tools_vm_image_id
+# }
 
-module "recovery_services_vault" {
-  source              = "./modules/recovery_services_vault"
-  rsv_name            = var.rsv_name
-  resource_group_name = var.hub_management_resource_group_name
-  location            = var.location
-  rsv_sku             = var.rsv_sku
+# module "recovery_services_vault" {
+#   source              = "./modules/recovery_services_vault"
+#   rsv_name            = var.rsv_name
+#   resource_group_name = var.hub_management_resource_group_name
+#   location            = var.location
+#   rsv_sku             = var.rsv_sku
 
-  depends_on = [
-    module.hub_management_resource_group
-  ]
-}
+#   depends_on = [
+#     module.hub_management_resource_group
+#   ]
+# }
 
 module "app_service" {
   source              = "./modules/app_service"
@@ -367,22 +367,22 @@ module "dev_kv_private_endpoint" {
   ]
 }
 
-module "dev_db_private_endpoint" {
-  source               = "./modules/private_endpoint"
-  pe_name              = var.dev_db_endpoint_name
-  location             = var.location
-  resource_group_name  = var.dev_app_resource_group_name
-  subnet_id            = module.dev_data_subnet.subnet_id
-  service_name         = var.dev_db_privateserviceconnection_name
-  resource_id          = module.sql.server_id
-  subresource          = ["sqlServer"]
-  dns_group_name       = "sql"
-  private_dns_zone_ids = [module.data_dns.id]
+# module "dev_db_private_endpoint" {
+#   source               = "./modules/private_endpoint"
+#   pe_name              = var.dev_db_endpoint_name
+#   location             = var.location
+#   resource_group_name  = var.dev_app_resource_group_name
+#   subnet_id            = module.dev_data_subnet.subnet_id
+#   service_name         = var.dev_db_privateserviceconnection_name
+#   resource_id          = module.sql.server_id
+#   subresource          = ["sqlServer"]
+#   dns_group_name       = "sql"
+#   private_dns_zone_ids = [module.data_dns.id]
 
-  depends_on = [
-    module.dev_data_subnet, module.sql
-  ]
-}
+#   depends_on = [
+#     module.dev_data_subnet, module.sql
+#   ]
+# }
 
 module "dev_app_private_endpoint" {
   source               = "./modules/private_endpoint"
@@ -495,11 +495,11 @@ module "app_dns" {
   resource_group_name = var.dev_app_resource_group_name
 }
 
-module "data_dns" {
-  source              = "./modules/private_dns_zones"
-  dns_name            = "privatelink.database.windows.net"
-  resource_group_name = var.dev_app_resource_group_name
-}
+# module "data_dns" {
+#   source              = "./modules/private_dns_zones"
+#   dns_name            = "privatelink.database.windows.net"
+#   resource_group_name = var.dev_app_resource_group_name
+# }
 
 module "dev_kv_dns" {
   source              = "./modules/private_dns_zones"
