@@ -326,7 +326,7 @@ module "hub_kv_private_endpoint" {
   resource_id          = module.hub_key_vault.id
   subresource          = ["vault"]
   dns_group_name       = "vaults"
-  private_dns_zone_ids = module.hub_kv_dns.id
+  private_dns_zone_ids =[ module.hub_kv_dns.id]
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_key_vault
@@ -343,7 +343,7 @@ module "hub_sa_private_endpoint" {
   resource_id          = module.hub_storage_account.id
   subresource          = ["blob"]
   dns_group_name       = "storage"
-  private_dns_zone_ids = module.hub_sa_dns.id
+  private_dns_zone_ids =[ module.hub_sa_dns.id]
 
   depends_on = [
     module.hub_endpoint_subnet, module.hub_storage_account
@@ -360,7 +360,7 @@ module "dev_kv_private_endpoint" {
   resource_id          = module.dev_key_vault.id
   subresource          = ["vault"]
   dns_group_name       = "vaults"
-  private_dns_zone_ids = module.dev_kv_dns.id
+  private_dns_zone_ids = [module.dev_kv_dns.id]
 
   depends_on = [
     module.dev_kv_subnet, module.dev_key_vault
@@ -377,7 +377,7 @@ module "dev_db_private_endpoint" {
   resource_id          = module.sql.server_id
   subresource          = ["sqlServer"]
   dns_group_name       = "sql"
-  private_dns_zone_ids = module.data_dns.id
+  private_dns_zone_ids = [module.data_dns.id]
 
   depends_on = [
     module.dev_data_subnet, module.sql
@@ -394,7 +394,7 @@ module "dev_app_private_endpoint" {
   resource_id          = module.app_service.app_id
   subresource          = ["sites"]
   dns_group_name       = "websites"
-  private_dns_zone_ids = module.app_dns.id
+  private_dns_zone_ids = [module.app_dns.id]
 
   depends_on = [
     module.dev_asp_endpoint_subnet, module.app_service
