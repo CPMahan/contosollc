@@ -491,7 +491,7 @@ module "application_gateway" {
 
 module "app_dns" {
   source              = "./modules/private_dns_zones"
-  dns_name            = "privatelink.azurewebsites.net"
+  dns_name            = "dev-eus-h2o-app.privatelink.azurewebsites.net"
   resource_group_name = var.dev_app_resource_group_name
 }
 
