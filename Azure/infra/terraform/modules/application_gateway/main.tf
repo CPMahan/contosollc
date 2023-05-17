@@ -34,7 +34,7 @@ resource "azurerm_application_gateway" "agw" {
 
   backend_address_pool {
     name = "backend-pool"
-    ip_addresses = ["127.18.99.4"]
+    fqdns = ["dev-eus-h2o-app.privatelink.azurewebsites.net"]
   }
 
   backend_http_settings {
