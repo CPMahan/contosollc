@@ -70,7 +70,7 @@ resource "azurerm_application_gateway" "agw" {
 
   probe {
     name = "health-probe"
-    host = "dev-eus-h2o-app.azurewebsites.net"
+    host = "dev-eus-h2o-app.privatelink.azurewebsites.net"
     interval = 5
     protocol = "Http"
     path = "/"
