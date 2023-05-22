@@ -181,7 +181,7 @@ module "bastion" {
   subnet_id           = module.bastion_subnet.subnet_id
 
   depends_on = [
-    module.bastion_subnet,module.module.dev_app_private_endpoint
+    module.bastion_subnet,module.dev_app_private_endpoint
   ]
 }
 
