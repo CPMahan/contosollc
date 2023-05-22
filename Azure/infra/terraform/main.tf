@@ -76,7 +76,7 @@ module "bastion_subnet" {
   resource_group_name     = var.hub_network_resource_group_name
   virtual_network_name    = var.hub_virtual_network_name
   subnet_address_prefixes = var.bastion_subnet_prefixes
-  service_endpoints       = ["Microsoft.AzureActiveDirectory"]
+  service_endpoints       = ["Microsoft.Web"]
 
   depends_on = [
     module.hub_virtual_network
@@ -181,7 +181,7 @@ module "bastion" {
   subnet_id           = module.bastion_subnet.subnet_id
 
   depends_on = [
-    module.bastion_subnet
+    module.bastion_subnet,module.module.dev_app_private_endpoint
   ]
 }
 
