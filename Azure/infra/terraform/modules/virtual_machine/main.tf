@@ -10,7 +10,7 @@ resource "azurerm_network_interface" "network_interface" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "virtual_machine" {
+resource "azurerm_windows_virtual_machine" "virtual_machine" {
   name                = var.vm_name
   resource_group_name = var.resource_group_name
   location            = var.location
